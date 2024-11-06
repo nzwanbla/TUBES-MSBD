@@ -27,6 +27,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#page-top">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#rules">Rules</a></li>
                         <li class="nav-item"><a class="nav-link" href="#books">Books</a></li>
                         <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
@@ -179,9 +180,9 @@
                 </div>
             </div>
         </section>
-       
+        
         <!-- Faq Section -->
-        <section class="page-section bg-light" id="faq">
+ <section class="page-section bg-light" id="faq">
 
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
@@ -205,7 +206,9 @@
           <div class="faq-content">
             <p>Untuk menjadi anggota perpustakaan, siswa atau guru hanya perlu mengisi formulir pendaftaran yang tersedia di bagian layanan perpustakaan, membawa kartu pelajar atau kartu identitas, dan mengikuti peraturan yang telah ditetapkan oleh perpustakaan.</p>
           </div>
-          <i class="faq-toggle bi bi-chevron-right"></i>
+          <i class="faq-toggle">
+          <span class="arrow">&#9660;</span>
+          </i>
         </div><!-- End Faq item-->
 
         <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
@@ -216,7 +219,9 @@
             <p>2. Setelah menemukan buku, datang ke bagian layanan perpustakaan dengan buku tersebut dan berikan kartu anggota.</p>
             <p>3. Petugas akan memproses peminjaman dan mencatat data peminjam.</p>
           </div>
-          <i class="faq-toggle bi bi-chevron-right"></i>
+          <i class="faq-toggle">
+          <span class="arrow">&#9660;</span>
+          </i>
         </div><!-- End Faq item-->
 
         <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
@@ -225,7 +230,9 @@
           <div class="faq-content">
             <p>Masa peminjaman dapat diperpanjang dengan mengunjungi perpustakaan secara langsung atau melalui sistem online perpustakaan (jika tersedia) sebelum masa peminjaman habis, selama buku belum dipesan oleh orang lain.</p>
           </div>
-          <i class="faq-toggle bi bi-chevron-right"></i>
+          <i class="faq-toggle">
+          <span class="arrow">&#9660;</span>
+          </i>
         </div><!-- End Faq item-->
 
         <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
@@ -234,7 +241,9 @@
           <div class="faq-content">
             <p>Jika terlambat mengembalikan buku, peminjam akan dikenakan denda sebesar Rp 100 per hari. Peminjam yang terlambat juga akan dibatasi dalam melakukan peminjaman berikutnya hingga denda dilunasi.</p>
           </div>
-          <i class="faq-toggle bi bi-chevron-right"></i>
+          <i class="faq-toggle">
+          <span class="arrow">&#9660;</span>
+          </i>
         </div><!-- End Faq item-->
 
         <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
@@ -243,7 +252,9 @@
           <div class="faq-content">
             <p>Peminjam bertanggung jawab atas buku yang dipinjam. Jika buku hilang atau rusak, peminjam harus mengganti buku tersebut dengan buku yang sama atau membayar ganti rugi sesuai ketentuan yang berlaku.</p>
           </div>
-          <i class="faq-toggle bi bi-chevron-right"></i>
+          <i class="faq-toggle">
+            <span class="arrow">&#9660;</span>
+          </i>
         </div><!-- End Faq item-->
 
       </div>
@@ -254,20 +265,14 @@
 
 </div>
 
-</section><!-- /Faq 2 Section -->
+</section><!-- /Faq Section -->
+       
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-4 text-center">Copyright &copy; 2023
+                        <a class="link-dark text-decoration-none" href="#page-top">SMA Negeri 2 Binjai</a>
                     </div>
                 </div>
             </div>
