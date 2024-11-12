@@ -1,0 +1,262 @@
+:root {
+    --body-bg-color: #e5f4f9;
+    --body-color-light: #8b939c;
+    --body-font: "Roboto", sans-serif;
+    --page-bg-color: #f2f5f7;
+    --body-color: #3d4954;
+    --border-color: #b8bec3;
+    --placeholder: #ccd0d2;
+   }
+   
+* {
+    outline: none;
+    box-sizing: border-box;
+   }
+   
+   html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+   }
+   
+   body {
+   background-color: #fff;
+   background-attachment: fixed;
+    font-family: var(--body-font);
+    color: var(--body-color);
+    font-weight: 400;
+    margin: 0;
+   }
+
+   .container {
+    display: flex; 
+    align-items: center; 
+    padding: 10px; 
+}
+
+.catalog h2 {
+    font-family: Helvetica; 
+    font-size: 20px; 
+    margin: 0; 
+    font-weight: bold;
+}
+
+.container a {
+    display: inline-block;
+    padding: 2px 10px; 
+    color: #0067b8;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; 
+    font-size: 12px; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.container a:hover {
+    color: #004080; 
+    transform: scale(1.1); 
+}
+
+.container a:hover i {
+    margin-left: 10px;
+}
+   
+.book-slide {
+    width: 100%;
+   }
+   
+   .book {
+    background: #fff;
+   }
+   
+   .book-cell {
+    position: relative;
+    display: flex;
+    padding: 25px;
+    width: 40%;
+    height: 250px;
+    margin-right: 1px;
+    &:nth-child(1) {
+     background-color: #fff;
+    }
+    &:nth-child(2) {
+     background-color: #fff;
+    }
+    &:nth-child(3) {
+     background-color: #fff;
+    }
+    &:nth-child(4) {
+     background-color: #fff;
+    }
+    &:nth-child(5) {
+     background-color: #fff;
+    }
+   }
+   
+   .book-photo {
+    width: 130px;
+    height: 200px;
+    flex-shrink: 0;
+    bottom: -35px;
+    left: 35px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: -2px 6px 19px 0px #7f818e;
+    transition: .3s ease;
+    &:hover {
+     transform: scale(1.03);
+    }
+   }
+   
+   .book-img {
+    flex-shrink: 0;
+    width: 130px;
+   }
+   
+   .book-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+   }
+   
+   .book-title {
+    color: #000;
+    font-weight: 600;
+   }
+   
+   .book-author {
+    margin-top: 3px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+   }
+   
+   .book-content {
+    padding: 0 20px;
+    color: #000;
+    overflow: hidden;
+   }
+   
+   fieldset,
+   label {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+   }
+   
+   h1 {
+    font-size: 0.5em;
+    margin: 10px;
+   }
+   .rating {
+    border: none;
+   }
+   
+   .rating > input {
+    display: none;
+   }
+   .rating > label:before {
+    margin-right: 5px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+   }
+   
+   .rating > label {
+    color: #d9d9d9;
+    float: right;
+   }
+   
+   .rating > input:checked ~ label,
+   .rating:not(:checked) > label:hover,
+   .rating:not(:checked) > label:hover ~ label {
+    color: #d85d61;
+   }
+   .rating > input:checked + label:hover,
+   .rating > input:checked ~ label:hover,
+   .rating > label:hover ~ input:checked ~ label,
+   .rating > input:checked ~ label:hover ~ label {
+    color: #d85d61;
+   }
+   
+   .blue > input:checked ~ label,
+   .blue:not(:checked) > label:hover,
+   .blue:not(:checked) > label:hover ~ label {
+    color: #458997;
+   }
+   .blue > input:checked + label:hover,
+   .blue > input:checked ~ label:hover,
+   .blue > label:hover ~ input:checked ~ label,
+   .blue > input:checked ~ label:hover ~ label {
+    color: #458997;
+   }
+   
+   .purple > input:checked ~ label,
+   .purple:not(:checked) > label:hover,
+   .purple:not(:checked) > label:hover ~ label {
+    color: #a76287;
+   }
+   .purple > input:checked + label:hover,
+   .purple > input:checked ~ label:hover,
+   .purple > label:hover ~ input:checked ~ label,
+   .purple > input:checked ~ label:hover ~ label {
+    color: #a76287;
+   }
+   
+   .yellow > input:checked ~ label,
+   .yellow:not(:checked) > label:hover,
+   .yellow:not(:checked) > label:hover ~ label {
+    color: #ffad58;
+   }
+   .yellow > input:checked + label:hover,
+   .yellow > input:checked ~ label:hover,
+   .yellow > label:hover ~ input:checked ~ label,
+   .yellow > input:checked ~ label:hover ~ label {
+    color: #ffad58;
+   }
+   
+   .dark-purp > input:checked ~ label,
+   .dark-purp:not(:checked) > label:hover,
+   .dark-purp:not(:checked) > label:hover ~ label {
+    color: #905587;
+   }
+   .dark-purp > input:checked + label:hover,
+   .dark-purp > input:checked ~ label:hover,
+   .dark-purp > label:hover ~ input:checked ~ label,
+   .dark-purp > input:checked ~ label:hover ~ label {
+    color: #905587;
+   }
+   
+   .book-voters {
+    color: #000;
+    vertical-align: sub;
+    font-size: 13px;
+    margin-left: 7px;
+    white-space: nowrap;
+    margin-top: 7px;
+   }
+   
+   .book-sum {
+    color: #000;
+    margin-top: 20px;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+   }
+   
+   .book-see {
+    margin-top: 25px;
+    text-align: center;
+    background-color: #81a8f8;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px;
+    font-size: 14px;
+    width: 160px;
+    border-radius: 20px;
+   }
