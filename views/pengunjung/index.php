@@ -292,7 +292,7 @@
 
                 <!-- include footer -->
                 <?php
-                include "./include/footer.php";
+                include "../../include/footer.php";
                 ?>
             </div>
 
