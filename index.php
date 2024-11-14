@@ -36,7 +36,7 @@
             <div class="container">
                 <div class="masthead-subheading">Selamat Datang di Perpustakaan</div>
                 <div class="masthead-heading text-uppercase">SMAN 2 Binjai</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#login">Luangkan Waktumu, Mari Baca Buku!</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="views/login.php">Luangkan Waktumu, Mari Baca Buku!</a>
             </div>
         </header>
         <!-- Services-->
