@@ -1,3 +1,14 @@
+<?php
+
+    require './include/Admin_function.php';
+
+    if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin')
+    {
+        header("Location: ../login.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,19 +17,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Dashboard Admin</title>
-  <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="../../assets/js/select.dataTables.min.css" type="text/css">
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../assets/css/vertical-layout-light/style.css">
-  <link rel="stylesheet" href="../../assets/css/font-awesome.css">
-  <link rel="stylesheet" href="../../assets/css/card.css">
-  <link rel="stylesheet" href="../../assets/css/flickity.css">
-  <link rel="stylesheet" href="../../assets/css/flickity.min.css">
-  <link rel="shortcut icon" href="../../assets/images/favicon.png" />
 
+  <?php include "./include/css.php"; ?>
 
 </head>
 
@@ -53,7 +53,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Selamat Datang, Admin !</h3>
+                  <h3 class="font-weight-bold">Selamat Datang, <?=$_SESSION['nama']?> !</h3>
                   <h6 class="font-weight-normal mb-0">Perpustakaan SMA Negeri 2 Binjai<span class="text-primary"></span>
                   </h6>
                 </div>
@@ -344,21 +344,8 @@
 
   </div>
 
+  <?php include "./include/js.php"; ?>
 
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <script src="../../vendors/chart.js/Chart.min.js"></script>
-  <script src="../../vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="../../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="../../assets/js/dataTables.select.min.js"></script>
-  <script src="../../assets/js/off-canvas.js"></script>
-  <script src="../../assets/js/hoverable-collapse.js"></script>
-  <script src="../../assets/js/template.js"></script>
-  <script src="../../assets/js/settings.js"></script>
-  <script src="../../assets/js/todolist.js"></script>
-  <script src="../../assets/js/dashboard.js"></script>
-  <script src="../../assets/js/Chart.roundedBarCharts.js"></script>
-  <script src="../../assets/js/flickity.pkgd.min.js"></script>
-  <script src="../../assets/js/flickity.pkgd.js"></script>
 </body>
 
 </html>
