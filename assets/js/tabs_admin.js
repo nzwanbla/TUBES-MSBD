@@ -1,9 +1,20 @@
-$("#tile-1 .nav-tabs a").click(function() {
-    var position = $(this).parent().position();
-    var width = $(this).parent().width();
-      $("#tile-1 .slider").css({"left":+ position.left,"width":width});
-  });
-  var actWidth = $("#tile-1 .nav-tabs").find(".active").parent("li").width();
-  var actPosition = $("#tile-1 .nav-tabs .active").position();
-  $("#tile-1 .slider").css({"left":+ actPosition.left,"width": actWidth});
-  
+
+$(document).ready(function () {
+    
+    $('#nav-tabs').children('li').first().children('a').addClass('active')
+        .next().addClass('is-open').show();
+        
+    $('#nav-tabs').on('click', 'li > a', function() {
+        
+      if (!$(this).hasClass('active')) {
+
+        $('#nav-tabs .is-open').removeClass('is-open').hide();
+        $(this).next().toggleClass('is-open').toggle();
+          
+        $('#nav-tabs').find('.active').removeClass('active');
+        $(this).addClass('active');
+      } else {
+        $('#nav-tabs .is-open').not($(this).next()).removeClass('is-open').hide();
+      }
+   });
+});
