@@ -55,135 +55,109 @@
       <div class="col-lg-10">
               <div class="card mb-4">
                 <div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
-                  <h4 class="m-0 font-weight-bold text-primary">Laporan Data Peminjaman</h4>
-                  <a href="" class="btn btn-primary">Ekspor ke Excel</a>
+                  <h4 class="m-0 font-weight-bold text-primary">Data Guru</h4>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Tambah Guru
+                    </button>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                     <thead class="bg-primary text-white">
                       <tr>
-                        <th>No</th>
-                        <th>ID Peminjaman</th>
-                        <th>Nama Peminjam</th>
-                        <th>Judul Buku</th>
-                        <th>Tanggal Peminjaman</th>
-                        <th>Jatuh Tempo</th>
-                        <th>Status</th>
-                        <th>Tanggal Pengembalian</th>
-                        <th>Denda</th>
-                        <th>Aksi</th>
+                      <th>No</th>
+                       <th>Profile</th>
+                       <th>Username</th>
+                       <th>Nama</th>
+                       <th>NIP</th>
+                       <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>1</td>
-                        <td>P001</td>
-                        <td>Aldi</td>
-                        <td>Sang Pemimpi</td>
-                        <td>01-11-2024</td>
-                        <td>08-11-2024</td>
-                        <td>Dipinjam</td>
-                        <td>-</td>
-                        <td>-</td>
+                      <td>1</td>
+                        <td></td>
+                        <td>agus293</td>
+                        <td>Agus</td>
+                        <td>12982093</td>
                         <td>
-                          <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?=<?= $data[''] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                             <i class="bi bi-trash"></i>
+                           </button>
                             <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
                       </tr>
                       <tr>
-                        <td>2</td>
-                        <td>P002</td>
-                        <td>Laila</td>
-                        <td>Sejarah Diplomasi Indonesia</td>
-                        <td>01-11-2024</td>
-                        <td>08-11-2024</td>
-                        <td>Dikembalikan</td>
-                        <td>08-11-2024</td>
-                        <td>Rp. 0</td>
+                      <td>2</td>
+                       <td></td>
+                       <td>siti</td>
+                       <td>Siti</td>
+                       <td>12328940</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
                       </tr>
                       <tr>
-                        <td>3</td>
-                        <td>P003</td>
-                        <td>Putra</td>
-                        <td>Negeri Para Bedebah</td>
-                        <td>01-11-2024</td>
-                        <td>08-11-2024</td>
-                        <td>Terlambat</td>
-                        <td>-</td>
-                        <td>Rp. 10.000</td>
+                      <td>3</td>
+                       <td></td>
+                       <td>aisyah2718</td>
+                       <td>Aisyah</td>
+                       <td>10239028</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
                       </tr>
                       <tr>
-                        <td>4</td>
-                        <td>P004</td>
-                        <td>Mahen</td>
-                        <td>Kiat Menulis Karya Ilmiah</td>
-                        <td>01-11-2024</td>
-                        <td>08-11-2024</td>
-                        <td>Dipinjam</td>
-                        <td>-</td>
-                        <td>-</td>
+                      <td>4</td>
+                       <td></td>
+                       <td>budi129</td>
+                       <td>Budiman</td>
+                       <td>1202039</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
                       </tr>
                       <tr>
-                        <td>5</td>
-                        <td>P005</td>
-                        <td>Citra</td>
-                        <td>Sang Pemimpi</td>
-                        <td>01-11-2024</td>
-                        <td>08-11-2024</td>
-                        <td>Terlambat</td>
-                        <td>-</td>
-                        <td>Rp. 10.000</td>
+                      <td>5</td>
+                       <td></td>
+                       <td>pppp</td>
+                       <td>ppppppp</td>
+                       <td>12092380</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
                       </tr>
                       <tr>
-                        <td>6</td>
-                        <td>P006</td>
-                        <td>Budi</td>
-                        <td>Pulang</td>
-                        <td>01-11-2024</td>
-                        <td>08-11-2024</td>
-                        <td>Dikembalikan</td>
-                        <td>07-11-2024</td>
-                        <td>Rp. 0</td>
+                      <td>6</td>
+                       <td></td>
+                       <td>wwww</td>
+                       <td>wwwwww</td>
+                       <td>102937398</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data[''] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                             <i class="bi bi-trash"></i>
+                           </button>
                             <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
                               <i class="bi bi-pencil"></i>
                             </button>
@@ -225,7 +199,6 @@
   <script src="../../assets/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="../../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-
   <!-- Page level custom scripts -->
   <script>
     $(document).ready(function () {
@@ -234,5 +207,33 @@
     });
   </script>
 </body>
-
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Tambah Guru</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <form method="post">
+        <div class="modal-body">
+        <label>Username <small class="text-danger">*</small></label>
+          <input type="text" name="username" placeholder="Username" class="form-control" required>
+          <br>
+          <label>Nama <small class="text-danger">*</small></label>
+          <input type="text" name="nama" placeholder="Nama" class="form-control" required>
+          <br>
+          <label>NIP <small class="text-danger">*</small></label>
+          <input type="text" name="NIP" placeholder="NIP" class="form-control" required>
+          <br>
+          <button type="submit" class="btn btn-primary" name="addnewguru">Submit</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </html>

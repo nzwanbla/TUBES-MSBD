@@ -1,3 +1,13 @@
+<?php
+
+    require './include/Admin_function.php';
+
+    if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin')
+    {
+        header("Location: ../login.php");
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,33 +16,45 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin Dashboard</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <link rel="stylesheet" href="../template/vendors/codemirror/codemirror.css">
-  <link rel="stylesheet" href="../template/vendors/codemirror/ambiance.css">
-  <link rel="stylesheet" href="../template/vendors/pwstabs/jquery.pwstabs.min.css">
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <title>Dashboard Admin</title>
+
+  <?php include "./include/css.php"; ?>
+
 </head>
 
 <body>
-    <div class=" container-scroller">
+  <div class="container-scroller">
+    <!-- include:navbar.php -->
+    <?php
+    include "./include/navbar.php";
+    ?>
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- include -->
+      <!-- sidebar_settings.php -->
+      <?php
+      include "../../include/sidebar_setting.php";
+      ?>
+
+      <!-- to do list.php -->
+      <?php
+      include "../../include/to_do_list.php";
+      ?>
+
+      <!-- sidebar.php -->
+      <?php
+      include "./include/sidebar.php";
+      ?>
+
+      <!-- Tampilan main yang diubah tiap file -->
+      <div class=" container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
           <div class="main-panel w-100  documentation">
             <div class="content-wrapper">
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-12 pt-5">
-                    <a class="btn btn-primary" href="../../index.html"><i class="ti-home mr-2"></i>Back to home</a>
+                    <a class="btn btn-primary" href="../login.php"><i class="ti-home mr-2"></i>Back to home</a>
                   </div>
                 </div>
                 <div class="row pt-5 mt-5">
@@ -53,33 +75,20 @@
                 </div>
               </div>
             </div>
-            <!-- partial:../../partials/_footer.html -->
-            <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-          </div>
-        </footer>
-            <!-- partial -->
-          </div>
-        </div>
+      
+        <!-- include/footer.php -->
+        <?php
+        include "../../include/footer.php";
+        ?>
+
       </div>
-<!-- plugins:js -->
-<script src="../../vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- inject:js -->
-<script src="../../js/off-canvas.js"></script>
-<script src="../../js/hoverable-collapse.js"></script>
-<script src="../../js/template.js"></script>
-<script src="../../js/settings.js"></script>
-<script src="../../js/todolist.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="../../js/codeEditor.js"></script>
-<script src="../../js/tabs.js"></script>
-<script src="../../js/tooltips.js"></script>
-<script src="../../js/documentation.js"></script>
-<!-- End custom js for this page-->
+
+    </div>
+
+  </div>
+
+  <?php include "./include/js.php"; ?>
+
 </body>
 
 </html>
