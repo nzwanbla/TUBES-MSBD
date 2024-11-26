@@ -1,6 +1,6 @@
 <?php
 
-    require '../include/Admin_function.php';
+    require '../include/Conn_function.php';
     
     if (session_destroy())
     {
