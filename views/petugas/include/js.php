@@ -12,3 +12,5 @@
   <script src="../../assets/js/Chart.roundedBarCharts.js"></script>
   <script src="../../assets/js/flickity.pkgd.min.js"></script>
   <script src="../../assets/js/flickity.pkgd.js"></script>
+  <script src="../../assets/js/jsv.js"></script>
+  <script src="../../assets/js/ktlg.js"></script>

@@ -10,3 +10,4 @@
     <link rel="stylesheet" href="../../assets/css/flickity.css">
     <link rel="stylesheet" href="../../assets/css/flickity.min.css">
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    
