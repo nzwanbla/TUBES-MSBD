@@ -20,9 +20,9 @@
 
     <?php include "./include/css.php"; ?>
 
-    <!-- 
-    <link rel="stylesheet" href="../assets/css/style_user.css">
-     -->
+    
+    <!-- <link rel="stylesheet" href="../../assets/css/style_user.css"> -->
+    
     
 
     
