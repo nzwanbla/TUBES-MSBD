@@ -4,7 +4,7 @@
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="../admin/index.php">
-              <i class="icon-grid menu-icon"></i>
+              <i class="mdi mdi-trello menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
@@ -22,9 +22,24 @@
             </a>
             <div class="collapse" id="user">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../admin/petugas.php">Petugas</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../admin/siswa.php">Siswa</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../admin/guru.php">Guru</a></li>
+                <li class="nav-item"> 
+                  <a class="nav-link" href="../admin/petugas.php">
+                  <i class="mdi mdi-account-tie menu-icon"></i>  
+                  <span class="menu-title">Petugas</span>
+                  </a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link" href="../admin/siswa.php">
+                  <i class="mdi mdi-school menu-icon"></i>  
+                  <span class="menu-title">Siswa</span>
+                  </a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link" href="../admin/guru.php">
+                  <i class="mdi mdi-account-multiple-outline menu-icon"></i>  
+                  <span class="menu-title">Guru</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </li>

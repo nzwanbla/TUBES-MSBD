@@ -16,7 +16,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#laporan" aria-expanded="false" aria-controls="laporan">
-              <i class="mdi mdi-account-multiple menu-icon"></i>
+              <i class="mdi mdi-file-chart menu-icon"></i>
               <span class="menu-title">Laporan</span>
               <i class="menu-arrow"></i>
             </a>
@@ -29,7 +29,7 @@
           </li>
           <li class="nav-item">
               <a class="nav-link" href="../petugas/denda.php">
-                <i class="mdi mdi-account-card-details menu-icon"></i>
+                <i class="mdi mdi-bank-minus menu-icon"></i>
                 <span class="menu-title">Data Denda</span>
               </a>
           <li class="nav-item">

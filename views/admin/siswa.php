@@ -5,19 +5,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Dashboard Admin</title>
-  <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css">
-  <link rel="stylesheet" href="../../assets/css/vertical-layout-light/style.css">
-  <link rel="stylesheet" href="../../assets/css/tabs_admin.css">
-  <link rel="stylesheet" href="../../assets/vendor/simple-datatables/style.css">
-  <link rel="stylesheet" href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="shortcut icon" href="../../assets/images/favicon.png" />
-
+  <title>Perpustakaan SMAN 2 Binjai</title>
+  
+  <?php include "./include/css.php"; ?>
+  
 </head>
 
 <body>
@@ -77,10 +68,10 @@
                         <td>X IPA-1</td>
                         <td>12345678</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -93,10 +84,10 @@
                         <td>XI IPS-2</td>
                         <td>9382804</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -109,10 +100,10 @@
                         <td>X IPA-3</td>
                         <td>23201930</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -125,10 +116,10 @@
                         <td>XII IPS-4</td>
                         <td>91289387</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -141,10 +132,10 @@
                         <td>XI IPA-1</td>
                         <td>29849209</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -157,10 +148,10 @@
                         <td>X IPS-2</td>
                         <td>93801288</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -204,10 +195,10 @@
                         <td>X IPA-1</td>
                         <td>12345678</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -220,10 +211,10 @@
                         <td>XI IPS-2</td>
                         <td>9382804</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -236,10 +227,10 @@
                         <td>X IPA-3</td>
                         <td>23201930</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -252,10 +243,10 @@
                         <td>XII IPS-4</td>
                         <td>91289387</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -268,10 +259,10 @@
                         <td>XI IPA-1</td>
                         <td>29849209</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -284,10 +275,10 @@
                         <td>X IPS-2</td>
                         <td>93801288</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -331,10 +322,10 @@
                         <td>X IPA-1</td>
                         <td>12345678</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -347,10 +338,10 @@
                         <td>XI IPS-2</td>
                         <td>9382804</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -363,10 +354,10 @@
                         <td>X IPA-3</td>
                         <td>23201930</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -379,10 +370,10 @@
                         <td>XII IPS-4</td>
                         <td>91289387</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -395,10 +386,10 @@
                         <td>XI IPA-1</td>
                         <td>29849209</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -411,10 +402,10 @@
                         <td>X IPS-2</td>
                         <td>93801288</td>
                         <td>
-                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
                              <i class="bi bi-trash"></i>
                            </button>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -427,16 +418,7 @@
   </li>
 </ul>
 
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <script src="../../assets/js/off-canvas.js"></script>
-  <script src="../../assets/js/hoverable-collapse.js"></script>
-  <script src="../../assets/js/template.js"></script>
-  <script src="../../assets/js/settings.js"></script>
-  <script src="../../assets/js/todolist.js"></script>
-  <script src="../../assets/js/tabs_admin.js"></script>
-  <script src="../../assets/vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-  <script src="../../assets/js/main.js"></script>
+<?php include "./include/js.php"; ?>
 
   <script>
     $(document).ready(function () {
