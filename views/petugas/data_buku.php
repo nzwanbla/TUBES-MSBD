@@ -5,26 +5,9 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Dashboard Admin</title>
-  <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
-  <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../assets/css/vertical-layout-light/style.css">
-  <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css">
-  <link rel="stylesheet" href="../../assets/vendor/boxicons/css/boxicons.min.css">
-  <link rel="stylesheet" href="../../assets/vendor/quill/quill.snow.css">
-  <link rel="stylesheet" href="../../assets/vendor/quill/quill.bubble.css">
-  <link rel="stylesheet" href="../../assets/vendor/remixicon/remixicon.css">
-  <link rel="stylesheet" href="../../assets/vendor/simple-datatables/style.css">
-  <link rel="stylesheet" href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../../assets/css/tabs_admin.css">
-  <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+  <title>Perpustakaan SMAN 2 Binjai</title>
 
+  <?php include "./include/css.php"; ?>
 
 </head>
 
@@ -86,10 +69,10 @@
                         <td>2006</td>
                         <td>Novel, Fiksi</td>
                         <td>
-                          <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?=<?= $data[''] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                          <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -102,10 +85,10 @@
                         <td>2008</td>
                         <td>Pendidikan</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -118,10 +101,10 @@
                         <td>2013</td>
                         <td>Novel, Fiksi</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -134,10 +117,10 @@
                         <td>2013</td>
                         <td>Pendidikan, Sejarah</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -150,10 +133,10 @@
                         <td>2015</td>
                         <td>Novel, Fiksi</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -166,10 +149,10 @@
                         <td>2012</td>
                         <td>Novel, Fiksi</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data[''] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -209,10 +192,10 @@
                         <td>Y</td>
                         <td>-</td>
                         <td>
-                          <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?=<?= $data[''] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['']; ?>">
+                          <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -225,10 +208,10 @@
                         <td>G</td>
                         <td>-</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -241,10 +224,10 @@
                         <td>ok</td>
                         <td>-</td>
                         <td>
-                        <a onclick="return confirm('Apakah Anda yakin ingin menghapus data?')" href="delete_books.php?kode_barang=<?= $data['kode_barang'] ?>" class="btn btn-outline-danger d-flex justify-content-center">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit<?php echo $data['kode_barang']; ?>">
+                        <button type="button" class="btn btn-outline-danger mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tombolhapus">
+                             <i class="bi bi-trash"></i>
+                           </button>
+                            <button type="button" class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#tomboledit">
                               <i class="bi bi-pencil"></i>
                             </button>
                         </td>
@@ -266,29 +249,7 @@
     </div>
   </div>
 
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
-  <script src="../../vendors/select2/select2.min.js"></script>
-  <script src="../../assets/js/off-canvas.js"></script>
-  <script src="../../assets/js/hoverable-collapse.js"></script>
-  <script src="../../assets/js/template.js"></script>
-  <script src="../../assets/js/settings.js"></script>
-  <script src="../../assets/js/todolist.js"></script>
-  <script src="../../assets/js/file-upload.js"></script>
-  <script src="../../assets/js/typeahead.js"></script>
-  <script src="../../assets/js/select2.js"></script>
-  <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../../assets/vendor/chart.js/chart.min.js"></script>
-  <script src="../../assets/vendor/echarts/echarts.min.js"></script>
-  <script src="../../assets/vendor/quill/quill.min.js"></script>
-  <script src="../../assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="../../assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="../../assets/vendor/php-email-form/validate.js"></script>
-  <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/tabs_admin.js"></script>
-  <script src="../../assets/vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <?php include "./include/js.php"; ?>
 
   <!-- Page level custom scripts -->
   <script>
@@ -299,4 +260,39 @@
     });
   </script>
 </body>
+<!-- The Modal -->
+<div class="modal fade" id="bookModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Tambah Buku</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <form method="post">
+        <div class="modal-body">
+        <label>Judul Buku <small class="text-danger">*</small></label>
+          <input type="text" name="judul" placeholder="Judul Buku" class="form-control" required>
+          <br>
+          <label>Penulis <small class="text-danger">*</small></label>
+          <input type="text" name="penulis" placeholder="Penulis" class="form-control" required>
+          <br>
+          <label>Penerbit <small class="text-danger">*</small></label>
+          <input type="text" name="penerbit" placeholder="Penerbit" class="form-control" required>
+          <br>
+          <label>Tahun Terbit <small class="text-danger">*</small></label>
+          <input type="text" name="tahun_terbit" placeholder="Tahun Terbit" class="form-control" required>
+          <br>
+          <label>Kategori <small class="text-danger">*</small></label>
+          <input type="text" name="kategori" placeholder="Kategori" class="form-control" required>
+          <br>
+          <button type="submit" class="btn btn-primary" name="addnewguru">Submit</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </html>

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../../vendors/feather/feather.css">
     <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
@@ -9,4 +8,5 @@
     <link rel="stylesheet" href="../../assets/css/card.css">
     <link rel="stylesheet" href="../../assets/css/flickity.css">
     <link rel="stylesheet" href="../../assets/css/flickity.min.css">
-    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link rel="shorcut icon" href="../../assets/images/library_icon.png" />
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
