@@ -1,0 +1,111 @@
+ /* Wrapper untuk daftar buku */
+        .catalog-book-list {
+            margin: 0 auto;
+        }
+
+        /* Setiap card */
+        .catalog-card {
+            display: flex;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Gambar dalam card */
+        .catalog-card-img {
+            width: 120px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        /* Konten card */
+        .catalog-card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .catalog-card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .catalog-card-author {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .catalog-card-rating {
+            font-size: 14px;
+            color: #ff9f00;
+            margin-bottom: 5px;
+        }
+
+        .catalog-card-voter {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .catalog-card-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Tombol */
+        .catalog-btn {
+            align-self: start;
+            background-color: #8a2be2;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: white;
+            text-align: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .catalog-btn:hover {
+            background-color: #6b239d;
+            color: #fff;
+        }
+
+        /* Pagination buttons */
+        .btn-outline-primary {
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .btn-outline-primary:disabled {
+            background-color: #ddd;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        .catalog-card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* Menampilkan maksimal 3 baris */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* Menambahkan elipsis (...) */
+            height: 4.5rem;
+            /* Menyesuaikan dengan tinggi 3 baris */
+            line-height: 1.5rem;
+            /* Menyesuaikan tinggi baris */
+        }
