@@ -189,7 +189,7 @@
               <h2>Katalog Buku</h2>
             </div>
             <div class="explore" id="explore">
-              <a href="pages/katalog/katalog.php">Explore All</a>
+              <a href="./katalog.php">Explore All</a>
             </div>
           </div>
           <div class="book-slide">

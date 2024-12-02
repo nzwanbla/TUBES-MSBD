@@ -1,0 +1,56 @@
+.container {
+    margin-top: 20px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book-item {
+    width: 23%;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.book-content {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.book-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.book-content p {
+    font-size: 14px;
+    color: #555;
+}
+
+.pagination-new {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-new a {
+    padding: 10px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    border-radius: 5px;
+}
