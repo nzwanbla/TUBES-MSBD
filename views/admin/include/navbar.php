@@ -1,5 +1,11 @@
 <!-- partial:partials/_navbar.html -->
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+
+<?php
+  include_once 'Admin_Function.php';
+  $data = getDataUsers($_SESSION['username']);
+?>
+
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="../admin/index.php"><img src="../../assets/images/Logo-SMAN2.svg" class="mr-2" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="../admin/index.php"><img src="../../assets/images/Logo-SMAN2.svg" alt="logo"/></a>
@@ -59,15 +65,18 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="<?=$_SESSION['foto_profil']?>" alt="profile"/>
+              <img src="<?=$data['foto_profil']?>" alt="profile"/>
             </a>
-            
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
+              <a class="dropdown-item" href="profile.php">
+                <i class="mdi mdi-account text-primary"></i>
+                Change Profile
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="change_password.php">
+                <i class="ti-settings text-primary"></i>
+                Change Password
+              </a>
+              <a class="dropdown-item" href="../logout.php">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>

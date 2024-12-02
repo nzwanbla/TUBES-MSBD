@@ -6,6 +6,8 @@ if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
     header("Location: ../login.php");
 }
 
+$res = getDataBooks();
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +16,7 @@ if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Buku</title>
+    <title>Perpustakaan SMAN 2 Binjai</title>
     <?php include "./include/css.php"; ?>
     <link rel="stylesheet" href="../../assets/css/catalog.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -63,44 +65,31 @@ if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
         </div>
     </div>
 
+    <?php
+
+
+
+    $books = [];
+    // Menggunakan foreach untuk memproses data dan memasukkannya ke dalam $res
+    foreach ($res as $data) {
+        // Mengisi array $books dengan data yang sudah diproses (menggunakan htmlspecialchars untuk keamanan)
+        $books[] = [
+            'id_buku' => $data['id_buku'],
+            'judul' => htmlspecialchars($data['judul'], ENT_QUOTES, 'UTF-8'),
+            'penulis' => htmlspecialchars($data['penulis'], ENT_QUOTES, 'UTF-8'),
+            'foto_buku' => htmlspecialchars($data['foto_buku'], ENT_QUOTES, 'UTF-8'),
+            'rating' => $data['rating'],
+            'jumlah_pemberi_rating' => $data['jumlah_pemberi_rating'],
+            'sinopsis' => htmlspecialchars($data['sinopsis'], ENT_QUOTES, 'UTF-8')
+        ];
+    }
+
+    ?>
+
     <script>
         // Data asli buku
-        const allBooks = [
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            { title: "Biologi", author: "John Doe", description: "A deep dive into the study of life and living organisms.", img: "../../assets/images/perpus.png", rating: 4, voters: 120, sinopsis: "This book explores the basics of biology, from cellular biology to ecosystem dynamics." },
-            { title: "Aritmetika", author: "Jane Smith", description: "An introduction to basic arithmetic operations.", img: "../../assets/images/default_profile.jpg", rating: 3, voters: 90, sinopsis: "This book provides a comprehensive approach to arithmetic, explaining operations such as addition, subtraction, multiplication, and division." },
-            { title: "Fisika", author: "Albert Einstein", description: "A deep dive into the world of physics and its phenomena.", img: "https://via.placeholder.com/120x180", rating: 5, voters: 200, sinopsis: "This book focuses on fundamental concepts of physics, including mechanics, thermodynamics, and electromagnetism." },
-            // Tambahkan buku lainnya di sini...
-        ];
+        const allBooks = <?php echo json_encode($books, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE); ?>;
+        //menggunakan $res langsung pun bisa, tapi karena menghindari specialchar, jadi dipindah kan ke books dulu
 
         // Data buku yang difilter
         let filteredBooks = [...allBooks];
@@ -119,28 +108,43 @@ if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
             const endIndex = startIndex + booksPerPage;
             const booksToShow = filteredBooks.slice(startIndex, endIndex);
 
-            // Render buku pada halaman ini
-            booksToShow.forEach(book => {
-                const bookItem = document.createElement("div");
-                bookItem.className = "col-md-6 mb-4 catalog-book-item";
-                bookItem.innerHTML = `
-            <div class="catalog-card d-flex">
-                <img src="${book.img}" class="catalog-card-img" alt="${book.title}">
-                <div class="catalog-card-body">
-                    <h5 class="catalog-card-title">${book.title}</h5>
-                    <p class="catalog-card-author">by ${book.author}</p>
-                    <div class="catalog-card-rating">Rating: ${book.rating}/5</div>
-                    <div class="catalog-card-voter">${book.voters} voters</div>
-                    <p class="catalog-card-text">${book.sinopsis}</p>
-                    <button class="btn btn-primary catalog-btn">View Detail</button>
+            // Jika tidak ada buku yang ditemukan
+            if (booksToShow.length === 0) {
+                bookList.innerHTML = `
+                    <div class="col-12 text-center">
+                        <div class="alert alert-warning" role="alert">
+                            <strong>Maaf, buku yang Anda cari tidak tersedia.</strong><br>
+                            Coba gunakan kata kunci yang lain.
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Render buku pada halaman ini
+                booksToShow.forEach(book => {
+                    const bookItem = document.createElement("div");
+                    bookItem.className = "col-md-6 mb-4 catalog-book-item";
+                    bookItem.innerHTML = `
+                <div class="catalog-card d-flex">
+                    <img src="${book.foto_buku}" class="catalog-card-img" alt="${book.judul}">
+                    <div class="catalog-card-body">
+                        <h5 class="catalog-card-title">${book.judul}</h5>
+                        <p class="catalog-card-author">by ${book.penulis}</p>
+                        <div class="catalog-card-rating">Rating: ${book.rating}</div>
+                        <div class="catalog-card-voter">${book.jumlah_pemberi_rating} voters</div>
+                        <p class="catalog-card-text">${book.sinopsis}</p>
+                        <a href="detail_katalog.php?id=${book.id_buku}" class="btn btn-primary catalog-btn">
+                            View Detail
+                        </a>
+                    </div>
                 </div>
-            </div>
-        `;
-                bookList.appendChild(bookItem);
-            });
+            `;
+                    bookList.appendChild(bookItem);
+                });
+            }
 
             updatePaginationInfo();
         }
+
 
         // Fungsi untuk memperbarui informasi pagination dan tombol navigasi
         function updatePaginationInfo() {
@@ -171,14 +175,17 @@ if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
             } else {
                 // Filter buku berdasarkan input pencarian
                 filteredBooks = allBooks.filter(book =>
-                    book.title.toLowerCase().includes(searchInput)
+                    book.judul.toLowerCase().includes(searchInput) ||
+                    book.penulis.toLowerCase().includes(searchInput)
                 );
+
             }
 
             // Reset ke halaman pertama setiap kali pencarian dilakukan
             currentPage = 1;
             renderBooks();
         }
+
 
         // Event listener untuk pencarian
         document.getElementById("searchInput").addEventListener("keyup", filterBooks);

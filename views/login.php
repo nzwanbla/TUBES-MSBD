@@ -19,6 +19,7 @@ if (isset($_POST['loginbtn'])) {
         // Verifikasi password menggunakan password_verify
         if (password_verify($inputPassword, $row['password'])) {
             // Set session untuk user yang berhasil login
+            $_SESSION['id_user'] = $row['id_user'];
             $_SESSION['nama'] = $row['nama'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['foto_profil'] = $row['foto_profil'];

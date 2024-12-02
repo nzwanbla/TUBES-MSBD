@@ -1,6 +1,6 @@
 <?php
 
-    require './include/Petugas_function.php';
+    require './include/Petugas_Function.php';
 
     if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas')
     {
@@ -16,7 +16,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Dashboard Admin</title>
+  <title>Perpustakaan SMAN 2 Binjai</title>
   
   <?php include "./include/css.php"; ?>
 
@@ -189,7 +189,7 @@
               <h2>Katalog Buku</h2>
             </div>
             <div class="explore" id="explore">
-              <a href="pages/katalog/katalog.php">Explore All</a>
+              <a href="./katalog.php">Explore All</a>
             </div>
           </div>
           <div class="book-slide">
