@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
 
 $detailBuku = getDetailBook($id_buku);
 $genreBuku = getGenreBook($id_buku);
-$ulasanBuku = getReview($id_buku);
+$ulasanBuku = getReviewBook($id_buku);
 $countUlasan = getCountReview($id_buku);
 $countPeminjaman = getCountPeminjaman($id_buku);
 

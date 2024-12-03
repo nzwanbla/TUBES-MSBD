@@ -106,7 +106,7 @@ function getDetailBook($id)
     return mysqli_fetch_assoc($data);
 }
 
-function getReview($id)
+function getReviewBook($id)
 {
     $query = "SELECT * FROM view_ulasan_buku WHERE id_buku='$id'";
 
@@ -149,6 +149,25 @@ function getCountPeminjaman($id)
 function getGenreBook($id)
 {
     $query = "SELECT * FROM view_genre_buku WHERE id_buku='$id'";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function getDataEksemplar()
+{
+    $query = "SELECT * FROM view_eksemplar_buku ORDER BY id_eksemplar_buku DESC";
+
+    $data = query($query);
+
+    return ($data);
+
+}
+
+function getDataReview()
+{
+    $query = "SELECT * FROM view_ulasan_buku ORDER BY waktu_ulasan DESC";
 
     $data = query($query);
 
