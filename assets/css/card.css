@@ -260,3 +260,21 @@
     width: 160px;
     border-radius: 20px;
    }
+
+   .star {
+    font-size: 20px;
+    color: #FFD700; /* Warna emas */
+    margin-right: 2px;
+    }
+
+    .star.filled {
+    color: #FFD700; /* Warna bintang terisi */
+    }
+
+    .not-rated {
+        margin-right: 10px; /* Menambahkan jarak antara "Not Rated" dan penulis */
+        font-size: 14px;   /* Menyesuaikan ukuran font jika diperlukan */
+        color: #999;       /* Menyesuaikan warna teks jika diperlukan */
+    }
+    
+    

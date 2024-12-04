@@ -7,6 +7,7 @@
         header("Location: ../login.php");
     }
 
+    $res = getDataBooks(6);
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +91,7 @@
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card tale-bg">
                                 <div class="card-people mt-auto">
-                                    <img src="../../assets/images/dashboard/people2.png" alt="people">
+                                    <img src="../../assets/images/dashboard/people2.jpeg" alt="people">
                                 </div>
                             </div>
                         </div>
@@ -222,77 +223,74 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <p class="card-title mb-2 text-center">Katalog Buku</p>
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-borderless">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Buku</th>
-                                                                <th>Penulis</th>
-                                                                <th>Tahun Terbit</th>
-                                                                <th>ISBN</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Search Engine Marketing</td>
-                                                                <td class="font-weight-bold">zzz</td>
-                                                                <td>21 Sep 2018</td>
-                                                                <td>913808392</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Search Engine Optimization</td>
-                                                                <td class="font-weight-bold">aaa</td>
-                                                                <td>13 Jun 2018</td>
-                                                                <td>913808392</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Display Advertising</td>
-                                                                <td class="font-weight-bold">bbb</td>
-                                                                <td>28 Sep 2018</td>
-                                                                <td>913808392</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Pay Per Click Advertising</td>
-                                                                <td class="font-weight-bold">ccc</td>
-                                                                <td>30 Jun 2018</td>
-                                                                <td>913808392</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>E-Mail Marketing</td>
-                                                                <td class="font-weight-bold">ddd</td>
-                                                                <td>01 Nov 2018</td>
-                                                                <td>913808392</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Referral Marketing</td>
-                                                                <td class="font-weight-bold">eee</td>
-                                                                <td>20 Mar 2018</td>
-                                                                <td>913808392</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Social media marketing</td>
-                                                                <td class="font-weight-bold">fff</td>
-                                                                <td>26 Oct 2018</td>
-                                                                <td>913808392</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+    <!-- katalog buku -->
+    <div class="container">
+    <div class="catalog" id="catalog">
+        <h2>Katalog Buku</h2>
+    </div>
+    <div class="explore" id="explore">
+        <a href="./katalog.php">Explore All</a>
+    </div>
+</div>
+<div class="book-slide">
+    <div class="book js-flickity" data-flickity-options='{ "wrapAround": true }'>
+        <?php foreach ($res as $book): ?>
+            <div class="book-cell">
+                <div class="book-img">
+                    <img src="<?= $book['foto_buku'] ?>" alt="Book Image" class="book-photo">
                 </div>
+                <div class="book-content">
+                    <div class="book-title"><?= $book['judul'] ?></div>
+                    <div class="book-author">by <?= $book['penulis'] ?></div>
+                    <div class="rate">
+                    <?php
+                    $rating = $book['rating'];
+                    if ($rating == 'Not Rated')
+                    {
+                      echo '<span class="not-rated">Not Rated</span>';
+                    }
+                    else {
+                      for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $rating) {
+                          echo '<span class="star filled">&#9733;</span>'; // Bintang terisi
+                         } else {
+                          echo '<span class="star">&#9734;</span>'; // Bintang kosong
+                        }
+                    }
+                  }
+                    ?>
+                        <span class="book-voters"><?= $book['jumlah_pemberi_rating'] ?> voters</span>
+                    </div>
+                    <div class="book-sum"><?= substr($book['sinopsis'], 0, 100) ?>...</div>
+                    <div class="book-see book-blue">
+                        <a href="./detail_katalog.php?id=<?= $book['id_buku'] ?>">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
+
+
+<?php
+
+$books = [];
+// Menggunakan foreach untuk memproses data dan memasukkannya ke dalam $res
+foreach ($res as $data) {
+    // Mengisi array $books dengan data yang sudah diproses (menggunakan htmlspecialchars untuk keamanan)
+    $books[] = [
+        'id_buku' => $data['id_buku'],
+        'judul' => htmlspecialchars($data['judul'], ENT_QUOTES, 'UTF-8'),
+        'penulis' => htmlspecialchars($data['penulis'], ENT_QUOTES, 'UTF-8'),
+        'foto_buku' => htmlspecialchars($data['foto_buku'], ENT_QUOTES, 'UTF-8'),
+        'rating' => $data['rating'],
+        'jumlah_pemberi_rating' => $data['jumlah_pemberi_rating'],
+        'sinopsis' => htmlspecialchars($data['sinopsis'], ENT_QUOTES, 'UTF-8')
+    ];
+}
+
+?>
                 <!-- include footer -->
                 <?php
                 include "../../include/footer.php";
