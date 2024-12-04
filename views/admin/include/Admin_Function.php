@@ -89,4 +89,95 @@ function updatePassword($username, $new_password)
     return false; // Jika query gagal
 }
 
+function getDataBooks($limit = null)
+{
+    $query = "SELECT * FROM view_katalog_buku ORDER BY rating";
+
+    if ($limit) {
+        $query .= " LIMIT $limit";
+    }
+
+
+    $data = query($query);
+
+    return mysqli_fetch_all($data, MYSQLI_ASSOC);
+}
+
+function getDetailBook($id)
+{
+    $query = "SELECT * FROM view_katalog_buku WHERE id_buku='$id'";
+
+    $data = query($query);
+
+    return mysqli_fetch_assoc($data);
+}
+
+function getReviewBook($id)
+{
+    $query = "SELECT * FROM view_ulasan_buku WHERE id_buku='$id'";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function getCountReview($id)
+{
+    $query = "SELECT COUNT(id_ulasan_buku) AS jumlah_ulasan FROM view_ulasan_buku WHERE id_buku='$id'";
+
+    $data = query($query);
+
+    return mysqli_fetch_assoc($data);
+}
+
+function getCountPeminjaman($id)
+{
+    $query = "SELECT 
+                    eb.id_buku, 
+                    COALESCE(COUNT(pb.id_peminjaman_buku), 0) AS jumlah_peminjaman
+                FROM 
+                    eksemplar_buku eb
+                LEFT JOIN 
+                    peminjaman_buku pb ON eb.id_eksemplar_buku = pb.id_eksemplar_buku
+                JOIN 
+                    buku b ON eb.id_buku = b.id_buku
+                WHERE 
+                    eb.id_buku = '$id'  -- Ganti dengan id_buku yang diinginkan
+                GROUP BY 
+                    eb.id_buku";
+
+
+    $data = query($query);
+
+    return mysqli_fetch_assoc($data);
+}
+
+function getGenreBook($id)
+{
+    $query = "SELECT * FROM view_genre_buku WHERE id_buku='$id'";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function getDataEksemplar()
+{
+    $query = "SELECT * FROM view_eksemplar_buku ORDER BY id_eksemplar_buku DESC";
+
+    $data = query($query);
+
+    return ($data);
+
+}
+
+function getDataReview()
+{
+    $query = "SELECT * FROM view_ulasan_buku ORDER BY waktu_ulasan DESC";
+
+    $data = query($query);
+
+    return ($data);
+}
+
 ?>
