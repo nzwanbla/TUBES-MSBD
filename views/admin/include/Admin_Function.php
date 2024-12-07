@@ -89,14 +89,18 @@ function updatePassword($username, $new_password)
     return false; // Jika query gagal
 }
 
-function getDataBooks($limit = null)
+function getDataBooks()
 {
-    $query = "SELECT * FROM view_katalog_buku ORDER BY rating";
+    $query = "SELECT * FROM view_katalog_buku";
 
-    if ($limit) {
-        $query .= " LIMIT $limit";
-    }
+    $data = query($query);
 
+    return mysqli_fetch_all($data, MYSQLI_ASSOC);
+}
+
+function getDataBooksLim($limit)
+{
+    $query = "SELECT * FROM view_katalog_buku ORDER BY jumlah_pemberi_rating DESC LIMIT $limit";
 
     $data = query($query);
 

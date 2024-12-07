@@ -3,7 +3,7 @@
 require './include/Pengunjung_function.php';
 
 if (empty($_SESSION['username']) or $_SESSION['status'] != 'Pengunjung') {
-    header("Location: ../login.php");
+    header("Location: ./error-403.php");
 }
 $data = getDataUsers($_SESSION['username']);
 ?>

@@ -3,7 +3,7 @@
 require './include/Petugas_function.php';
 
 if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
-    header("Location: ../login.php");
+    header("Location: ./error-403.php");
 }
 
 $res = getDataBooks();
@@ -132,9 +132,9 @@ $res = getDataBooks();
                         <div class="catalog-card-rating">Rating: ${book.rating}</div>
                         <div class="catalog-card-voter">${book.jumlah_pemberi_rating} voters</div>
                         <p class="catalog-card-text">${book.sinopsis}</p>
-                        <a href="detail_katalog.php?id=${book.id_buku}" class="btn btn-primary catalog-btn">
-                            View Detail
-                        </a>
+                        <div class="book-see book-blue">
+                            <a class="text-light" href="./detail_katalog.php?id=${book.id_buku}">Lihat Detail</a>
+                        </div>
                     </div>
                 </div>
             `;

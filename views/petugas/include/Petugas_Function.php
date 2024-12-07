@@ -97,6 +97,15 @@ function getDataBooks()
     return mysqli_fetch_all($data, MYSQLI_ASSOC);
 }
 
+function getDataBooksLim($limit)
+{
+    $query = "SELECT * FROM view_katalog_buku ORDER BY jumlah_pemberi_rating DESC LIMIT $limit";
+
+    $data = query($query);
+
+    return mysqli_fetch_all($data, MYSQLI_ASSOC);
+}
+
 function getDetailBook($id)
 {
     $query = "SELECT * FROM view_katalog_buku WHERE id_buku='$id'";
@@ -174,8 +183,72 @@ function getDataReview()
     return ($data);
 }
 
+function getDataGenre()
+{
+    $query = "SELECT * FROM genre";
 
+    $data = query($query);
 
+    return ($data);
+}
+
+function inputBuku($data)
+{
+    // Ambil data dari array $data
+    $judul = $data['judul'];
+    $penulis = $data['penulis'];
+    $jenis_buku = $data['jenis_buku'];
+    $isbn = $data['isbn'];
+    $tahun_terbit = $data['tahun_terbit'];
+    $penerbit = $data['penerbit'];
+    $foto_buku = $data['foto_buku'];
+    $sinopsis = $data['sinopsis'];
+    $id_genres = $data['genre'];  // ID genre, bisa lebih dari satu (array atau string yang dipisahkan koma)
+    $jumlah_eksemplar = $data['jumlah_eksemplar'];
+    $lokasi_rak = $data['lokasi_rak'];
+    $id_user_penginput = $data['id_user_penginput'];
+
+    // Koneksi ke database
+    $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
+
+    // Siapkan query untuk memanggil stored procedure dengan parameter
+    $query = "CALL tambah_buku_dan_detail(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    // Siapkan prepared statement
+    if ($stmt = $conn->prepare($query)) {
+
+        // Mengikat parameter dengan tipe data yang sesuai
+        $stmt->bind_param(
+            "sssssssssiss", 
+            $judul,       // string
+            $penulis,     // string
+            $jenis_buku,  // string ('Paket Pelajaran' atau 'Non Paket Pelajaran')
+            $isbn,        // string (ISBN)
+            $tahun_terbit,// integer (YEAR)
+            $penerbit,    // string
+            $foto_buku,   // string (lokasi file gambar buku)
+            $sinopsis,    // text
+            $id_genres,   // string (ID genre buku, bisa dipisahkan koma)
+            $jumlah_eksemplar, // integer
+            $lokasi_rak,  // string
+            $id_user_penginput // integer (ID user yang menambahkan buku)
+        );
+
+        // Eksekusi query
+        if ($stmt->execute()) {
+            // Jika berhasil, kembalikan 1
+            $stmt->close();
+            return 1;
+        } else {
+            // Jika query gagal, kembalikan 0
+            $stmt->close();
+            return 0;
+        }
+    } else {
+        // Jika gagal mempersiapkan statement
+        return 0;
+    }
+}
 
 
 

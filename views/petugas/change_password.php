@@ -3,7 +3,7 @@
 require './include/Petugas_Function.php';
 
 if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
-    header("Location: ../login.php");
+    header("Location: ./error-403.php");
 }
 $data = getDataUsers($_SESSION['username']);
 
