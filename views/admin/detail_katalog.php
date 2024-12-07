@@ -3,7 +3,7 @@
 require './include/Admin_function.php';
 
 if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin') {
-    header("Location: ../login.php");
+    header("Location: ./error-403.php");
 }
 
 if (isset($_GET['id'])) {
@@ -56,70 +56,77 @@ $rating = $detailBuku['rating']; // Contoh: 4.6
                                                 class="catalog-card-img">
                                         </div>
                                     </div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2 class="catalog-card-title"><?= $detailBuku['judul'] ?></h2>
+                                            </div>
 
-                                    <!-- Kolom Informasi Utama Buku (Tengah) -->
-                                    <div class="col-md-4">
-                                        <h2 class="catalog-card-title"><?= $detailBuku['judul'] ?></h2>
-                                        <strong>Penulis:</strong> <?= $detailBuku['penulis'] ?>
-                                        <br><strong>No ISBN:</strong> <?= $detailBuku['ISBN'] ?>
-                                        <br><strong>Genre:</strong> <?php foreach ($genreBuku as $genre) { ?>
-                                            <?= $genre['nama_genre'] ?>
-                                        <?php } ?>
-                                        <br><strong>Tahun Terbit:</strong> <?= $detailBuku['tahun_terbit'] ?>
-                                        <br><strong>Penerbit:</strong> <?= $detailBuku['penerbit'] ?>
-                                        <br><strong>Lokasi Rak:</strong> <?= $detailBuku['lokasi_rak'] ?>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <strong>Penulis:</strong> <?= $detailBuku['penulis'] ?>
+                                                <br><strong>No ISBN:</strong> <?= $detailBuku['ISBN'] ?>
+                                                <br><strong>Genre:</strong> <?php foreach ($genreBuku as $genre) { ?>
+                                                    <?= $genre['nama_genre'] ?>
+                                                <?php } ?>
+                                                <br><strong>Tahun Terbit:</strong> <?= $detailBuku['tahun_terbit'] ?>
+                                                <br><strong>Penerbit:</strong> <?= $detailBuku['penerbit'] ?>
+                                                <br><strong>Lokasi Rak:</strong> <?= $detailBuku['lokasi_rak'] ?>
 
-                                        <!-- Informasi Ketersediaan -->
-                                    </div>
+                                                <!-- Informasi Ketersediaan -->
+                                            </div>
 
-                                    <!-- Kolom Informasi Tambahan (Kanan) -->
-                                    <div class="col-md-5">
-                                        <!-- Menambahkan jarak kosong di atas -->
-                                        <div class="mb-5"></div>
+                                            <!-- Kolom Informasi Tambahan (Kanan) -->
+                                            <div class="col-md-6">
+                                                <div class="catalog-card-rating">
+                                                    <strong>Rating:</strong>
+                                                    <!-- Menampilkan rating atau 'Not Rated' jika tidak ada rating -->
+                                                    <?php if ($rating == 'Not Rated') { ?>
+                                                        <span>Not Rated</span>
+                                                        <!-- Jika rating "Not Rated", tampilkan teks tanpa bintang -->
+                                                    <?php } else { ?>
+                                                        <!-- Menampilkan bintang berdasarkan rating -->
+                                                        <span class="star-rating2">
+                                                            <?php
+                                                            // Menghitung jumlah bintang penuh dan bintang kosong
+                                                            $fullStars = floor($rating); // Bintang penuh sesuai dengan angka bulat dari rating
+                                                            $emptyStars = 5 - $fullStars; // Menghitung sisa bintang kosong untuk mencapai 5
+                                                        
+                                                            // Tampilkan bintang penuh
+                                                            for ($i = 0; $i < $fullStars; $i++) {
+                                                                echo '<span style="color: #ffcc00; font-size: 1.5rem;">&#9733;</span>'; // Bintang penuh
+                                                            }
 
-                                        <!-- Rating dengan model bintang -->
-                                        <div class="catalog-card-rating">
-                                            <strong>Rating:</strong>
-                                            <!-- Menampilkan rating atau 'Not Rated' jika tidak ada rating -->
-                                            <?php if ($rating == 'Not Rated') { ?>
-                                                <span>Not Rated</span>
-                                                <!-- Jika rating "Not Rated", tampilkan teks tanpa bintang -->
-                                            <?php } else { ?>
-                                                <!-- Menampilkan bintang berdasarkan rating -->
-                                                <span class="star-rating2">
-                                                    <?php
-                                                    // Menghitung jumlah bintang penuh dan bintang kosong
-                                                    $fullStars = floor($rating); // Bintang penuh sesuai dengan angka bulat dari rating
-                                                    $emptyStars = 5 - $fullStars; // Menghitung sisa bintang kosong untuk mencapai 5
-                                                
-                                                    // Tampilkan bintang penuh
-                                                    for ($i = 0; $i < $fullStars; $i++) {
-                                                        echo '<span style="color: #ffcc00; font-size: 1.5rem;">&#9733;</span>'; // Bintang penuh
-                                                    }
-
-                                                    // Tampilkan bintang kosong jika ada
-                                                    for ($i = 0; $i < $emptyStars; $i++) {
-                                                        echo '<span style="color: #d3d3d3; font-size: 1.5rem;">&#9734;</span>'; // Bintang kosong
+                                                            // Tampilkan bintang kosong jika ada
+                                                            for ($i = 0; $i < $emptyStars; $i++) {
+                                                                echo '<span style="color: #d3d3d3; font-size: 1.5rem;">&#9734;</span>'; // Bintang kosong
+                                                            }
+                                                            ?>
+                                                        </span>
+                                                        <span> <?= $rating ?></span> <!-- Menampilkan nilai rating -->
+                                                    <?php } ?>
+                                                </div>
+                                                <!-- Jumlah dipinjam dan ulasan -->
+                                                <div class="catalog-card-voter">
+                                                    <strong>Jumlah Dipinjam:</strong>
+                                                    <?= $countPeminjaman['jumlah_peminjaman'] ?> kali
+                                                    <br><strong>Jumlah Ulasan:</strong>
+                                                    <?= $countUlasan['jumlah_ulasan'] ?>
+                                                    orang
+                                                    <br><strong>Ketersediaan:</strong> <?php
+                                                    if ($detailBuku['jumlah_buku_tersedia'] == 0) {
+                                                        echo "Tidak Tersedia";
+                                                    } else {
+                                                        echo "Tersedia (" . $detailBuku['jumlah_buku_tersedia'] . " Buku)";
                                                     }
                                                     ?>
-                                                </span>
-                                                <span> <?= $rating ?></span> <!-- Menampilkan nilai rating -->
-                                            <?php } ?>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <!-- Jumlah dipinjam dan ulasan -->
-                                        <div class="catalog-card-voter">
-                                            <strong>Jumlah Dipinjam:</strong>
-                                            <?= $countPeminjaman['jumlah_peminjaman'] ?> kali
-                                            <br><strong>Jumlah Ulasan:</strong> <?= $countUlasan['jumlah_ulasan'] ?>
-                                            orang
-                                            <br><strong>Ketersediaan:</strong> <?php
-                                            if ($detailBuku['jumlah_buku_tersedia'] == 0) {
-                                                echo "Tidak Tersedia";
-                                            } else {
-                                                echo "Tersedia (" . $detailBuku['jumlah_buku_tersedia'] . " Buku)";
-                                            }
-                                            ?>
-                                        </div>
+                                        <!-- Kolom Informasi Utama Buku (Tengah) -->
+
+
                                     </div>
 
                                 </div>
@@ -134,7 +141,7 @@ $rating = $detailBuku['rating']; // Contoh: 4.6
                                     <h5><strong>Ulasan Buku</strong></h5>
 
                                     <!-- Cek apakah ada ulasan -->
-                                    <?php if($countUlasan['jumlah_ulasan'] > 0) { ?>
+                                    <?php if ($countUlasan['jumlah_ulasan'] > 0) { ?>
                                         <!-- Ulasan Buku -->
                                         <div class="review-container">
                                             <?php

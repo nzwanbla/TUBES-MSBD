@@ -1,32 +1,31 @@
 <?php
 
-    require './include/Pengunjung_function.php';
+require './include/Pengunjung_function.php';
 
-    if (empty($_SESSION['username']) or $_SESSION['status'] != 'Pengunjung')
-    {
-        header("Location: ../login.php");
-    }
+if (empty($_SESSION['username']) or $_SESSION['status'] != 'Pengunjung') {
+    header("Location: ./error-403.php");
+}
 
-    $res = getDataBooks(6);
+$res = getDataBooksLim(6);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Perpustakaan SMAN 2 Binjai</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Perpustakaan SMAN 2 Binjai</title>
 
-    <?php include "./include/css.php"; ?>
+<?php include "./include/css.php"; ?>
 
-    
-    <!-- <link rel="stylesheet" href="../../assets/css/style_user.css"> -->
-    
-    
 
-    
+<!-- <link rel="stylesheet" href="../../assets/css/style_user.css"> -->
+
+
+
+
 
 </head>
 
@@ -61,7 +60,7 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Selamat Datang, <?=$_SESSION['nama']?> !</h3>
+                                    <h3 class="font-weight-bold">Selamat Datang, <?= $_SESSION['nama'] ?> !</h3>
                                     <h6 class="font-weight-normal mb-0">Perpustakaan SMA Negeri 2 Binjai<span
                                             class="text-primary"></span>
                                     </h6>
@@ -223,85 +222,67 @@
                                     </div>
                                 </div>
 
-    <!-- katalog buku -->
-    <div class="container">
-    <div class="catalog" id="catalog">
-        <h2>Katalog Buku</h2>
-    </div>
-    <div class="explore" id="explore">
-        <a href="./katalog.php">Explore All</a>
-    </div>
-</div>
-<div class="book-slide">
-    <div class="book js-flickity" data-flickity-options='{ "wrapAround": true }'>
-        <?php foreach ($res as $book): ?>
-            <div class="book-cell">
-                <div class="book-img">
-                    <img src="<?= $book['foto_buku'] ?>" alt="Book Image" class="book-photo">
-                </div>
-                <div class="book-content">
-                    <div class="book-title"><?= $book['judul'] ?></div>
-                    <div class="book-author">by <?= $book['penulis'] ?></div>
-                    <div class="rate">
-                    <?php
-                    $rating = $book['rating'];
-                    if ($rating == 'Not Rated')
-                    {
-                      echo '<span class="not-rated">Not Rated</span>';
-                    }
-                    else {
-                      for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= $rating) {
-                          echo '<span class="star filled">&#9733;</span>'; // Bintang terisi
-                         } else {
-                          echo '<span class="star">&#9734;</span>'; // Bintang kosong
-                        }
-                    }
-                  }
-                    ?>
-                        <span class="book-voters"><?= $book['jumlah_pemberi_rating'] ?> voters</span>
+                                <!-- katalog buku -->
+                                <div class="container">
+                                    <div class="catalog" id="catalog">
+                                        <h2>Katalog Buku</h2>
+                                    </div>
+                                    <div class="explore" id="explore">
+                                        <a href="./katalog.php">Lihat Lainnya</a>
+                                    </div>
+                                </div>
+                                <div class="book-slide">
+                                    <div class="book js-flickity" data-flickity-options='{ "wrapAround": true }'>
+                                        <?php foreach ($res as $book): ?>
+                                            <div class="book-cell">
+                                                <div class="book-img">
+                                                    <img src="<?= $book['foto_buku'] ?>" alt="<?= $book['judul'] ?>"
+                                                        class="book-photo">
+                                                </div>
+                                                <div class="book-content">
+                                                    <div class="book-title"><?= $book['judul'] ?></div>
+                                                    <div class="book-author">by <?= $book['penulis'] ?></div>
+                                                    <div class="rate">
+                                                        <?php
+                                                        $rating = $book['rating'];
+                                                        if ($rating == 'Not Rated') {
+                                                            echo '<span class="not-rated">Not Rated</span>';
+                                                        } else {
+                                                            for ($i = 1; $i <= 5; $i++) {
+                                                                if ($i <= $rating) {
+                                                                    echo '<span class="star filled">&#9733;</span>'; // Bintang terisi
+                                                                } else {
+                                                                    echo '<span class="star">&#9734;</span>'; // Bintang kosong
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <span class="book-voters"><?= $book['jumlah_pemberi_rating'] ?>
+                                                            voters</span>
+                                                    </div>
+                                                    <div class="book-sum"><?= substr($book['sinopsis'], 0, 100) ?>...</div>
+                                                    <div class="book-see book-blue">
+                                                        <a class="text-light"
+                                                            href="./detail_katalog.php?id=<?= $book['id_buku'] ?>">Lihat
+                                                            Detail</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+
+                                <!-- include footer -->
+                                <?php
+                                include "../../include/footer.php";
+                                ?>
+                            </div>
+
+                        </div>
+
                     </div>
-                    <div class="book-sum"><?= substr($book['sinopsis'], 0, 100) ?>...</div>
-                    <div class="book-see book-blue">
-                        <a href="./detail_katalog.php?id=<?= $book['id_buku'] ?>">Lihat Detail</a>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-</div>
 
-
-
-<?php
-
-$books = [];
-// Menggunakan foreach untuk memproses data dan memasukkannya ke dalam $res
-foreach ($res as $data) {
-    // Mengisi array $books dengan data yang sudah diproses (menggunakan htmlspecialchars untuk keamanan)
-    $books[] = [
-        'id_buku' => $data['id_buku'],
-        'judul' => htmlspecialchars($data['judul'], ENT_QUOTES, 'UTF-8'),
-        'penulis' => htmlspecialchars($data['penulis'], ENT_QUOTES, 'UTF-8'),
-        'foto_buku' => htmlspecialchars($data['foto_buku'], ENT_QUOTES, 'UTF-8'),
-        'rating' => $data['rating'],
-        'jumlah_pemberi_rating' => $data['jumlah_pemberi_rating'],
-        'sinopsis' => htmlspecialchars($data['sinopsis'], ENT_QUOTES, 'UTF-8')
-    ];
-}
-
-?>
-                <!-- include footer -->
-                <?php
-                include "../../include/footer.php";
-                ?>
-            </div>
-
-        </div>
-
-    </div>
-
-    <?php include "./include/js.php"; ?>
+                    <?php include "./include/js.php"; ?>
 
 </body>
 
