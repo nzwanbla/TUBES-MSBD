@@ -36,11 +36,6 @@ $res = getDataBooksLim(6);
       include "../../include/sidebar_setting.php";
       ?>
 
-      <!-- to do list.php -->
-      <?php
-      include "../../include/to_do_list.php";
-      ?>
-
       <!-- sidebar.php -->
       <?php
       include "./include/sidebar.php";
