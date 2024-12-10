@@ -63,11 +63,15 @@
               </a>
             </div>
           </li>
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+          <li class="nav-item nav-profile">
+            <a class="nav-link" href="#">
               <img src="<?=$data['foto_profil']?>" alt="profile"/>
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+          </li>
+          <li class="nav-item nav-setting dropdown">
+            <a class="nav-link" href="#" data-toggle="dropdown" id="settingDropdown">
+              <i class="icon-ellipsis"></i>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="settingDropdown">
               <a class="dropdown-item" href="profile.php">
                 <i class="mdi mdi-account text-primary"></i>
                 Change Profile
@@ -81,10 +85,6 @@
                 Logout
               </a>
             </div>
-          </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
             </a>
           </li>
         </ul>
