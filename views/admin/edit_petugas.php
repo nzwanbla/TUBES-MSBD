@@ -1,29 +1,27 @@
 <?php
-require './include/Pengunjung_Function.php';
 
-$data = getDataUsers($_SESSION['username']);
+require './include/Admin_Function.php';
+
+
 
 if (isset($_POST['uploadbtn'])) {
-
-    // Ambil data dari POST
-    $id_user = $_POST['id_user'];
     $username = $_POST['username'];
+    $id_user = $_POST['id_user'];
     $nama = $_POST['nama'];
     $role = $_POST['role'];
-    $no_induk = $_POST['no_induk'];
-    $tahun_masuk = !empty($_POST['tahun_masuk']) ? $_POST['tahun_masuk'] : null;
-    $kelas = !empty($_POST['kelas']) ? $_POST['kelas'] : null;
-    $alamat = !empty($_POST['alamat']) ? $_POST['alamat'] : null;
-    $id_user_pengedit = $_POST['id_user'];
+    $foto_profil = $_POST['foto_profil'];
+    $id_user_penginput = $_SESSION['id_user'];
 
-    // Cek apakah file diupload
+    
+
+
     if ($_FILES['berkas']['error'] == UPLOAD_ERR_OK) {
         $namaFile = $_FILES['berkas']['name'];
         $tmpFile = $_FILES['berkas']['tmp_name'];
 
         // Tentukan direktori utama
         $baseDir = '../../assets/images/profil/';
-        
+
         // Tentukan direktori spesifik untuk username
         $userDir = $baseDir . $username . '/';
 
@@ -51,38 +49,29 @@ if (isset($_POST['uploadbtn'])) {
         // Jika upload gagal, batalkan seluruh proses
         if (!$uploaded) {
             echo "
-                <script>
-                    alert('Gagal mengupload file!');
-                    window.history.back();
-                </script>
-            ";
+                    <script>
+                        alert('Gagal mengupload file!');
+                        window.history.back();
+                    </script>
+                ";
             exit();  // Hentikan eksekusi lebih lanjut
         }
     } else {
-        // Jika tidak ada file yang diupload, gunakan foto profil dari session
-        // Anda bisa menggunakan foto yang tersimpan dalam session atau di database
-        $fileLoc = $data['foto_profil'];  // Asumsi foto profil disimpan dalam session
+        // Jika tidak ada file yang diupload, gunakan gambar default
+        $fileLoc = $foto_profil;
     }
 
-    // Array data untuk dimasukkan ke database
-    $dataAssoc = array(
-        'id_user' => $id_user,
-        'username' => $username,
-        'nama' => $nama,
-        'role' => $role,
-        'no_induk' => $no_induk,
-        'tahun_masuk' => $tahun_masuk,
-        'kelas' => $kelas,
-        'alamat' => $alamat,
-        'fileLoc' => $fileLoc,
-        'id_user_pengedit' => $id_user_pengedit
-    );
+    $res = query("UPDATE users
+                    SET nama = '$nama',
+                    role = '$role',
+                    foto_profil = '$fileLoc'
+                    WHERE id_user = '$id_user' ");
 
-    // Jika fungsi updateUserDanPengunjung gagal, hapus file dan batalkan proses
-    if (updateUserDanPengunjung($dataAssoc) != 1) {
+    // Panggil procedure untuk memasukkan data buku ke dalam database
+    if ($res != 1) {
         // Jika update gagal dan file baru diupload, hapus file yang sudah diupload
         if (isset($uploaded) && !$uploaded) {
-            unlink($fileLoc);
+            unlink($fileLoc);  // Hapus file yang diupload
         }
 
         echo "
@@ -98,8 +87,10 @@ if (isset($_POST['uploadbtn'])) {
     echo "
         <script>
             alert('File berhasil diupload dan data berhasil diupdate!');
-            window.location = './profile.php';
-        </script>
-    ";
+            window.location = './data_petugas.php';
+        </script>";
+
+
+
 }
 ?>

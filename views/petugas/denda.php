@@ -25,10 +25,7 @@
       include "../../include/sidebar_setting.php";
       ?>
 
-      <!-- to do list.php -->
-      <?php
-      include "../../include/to_do_list.php";
-      ?>
+      
 
       <!-- sidebar.php -->
       <?php
