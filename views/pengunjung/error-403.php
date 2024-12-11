@@ -27,7 +27,7 @@
             </div>
             <div class="row mt-5">
               <div class="col-12 text-center mt-xl-2">
-                <button onclick="history.back()" class="btn btn-info btn-fw">Back to Home</button>
+                <button onclick="history.back()" class="btn btn-info btn-fw">Go Back</button>
               </div>
             </div>
             <div class="row mt-5">

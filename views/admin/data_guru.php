@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Perpustakaan SMAN 2 Binjai</title>
-  
+
   <?php include "./include/css.php"; ?>
 
 </head>
@@ -25,10 +25,7 @@
       include "../../include/sidebar_setting.php";
       ?>
 
-      <!-- to do list.php -->
-      <?php
-      include "../../include/to_do_list.php";
-      ?>
+      
 
       <!-- sidebar.php -->
       <?php
@@ -39,10 +36,9 @@
       <div class="col-lg-10">
               <div class="card mb-4">
                 <div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
-                  <h4 class="m-0 font-weight-bold text-primary">Data Petugas</h4>
-                   <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        Tambah Petugas
+                  <h4 class="m-0 font-weight-bold text-primary">Data Guru</h4>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Tambah Guru
                     </button>
                 </div>
                 <div class="table-responsive p-3">
@@ -162,7 +158,7 @@
   </div>
 
   <?php include "./include/js.php"; ?>
-
+  
   <!-- Page level custom scripts -->
   <script>
     $(document).ready(function () {
@@ -171,14 +167,14 @@
     });
   </script>
 </body>
-     <!-- The Modal -->
-  <div class="modal fade" id="myModal">
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Tambah Petugas</h4>
+          <h4 class="modal-title">Tambah Guru</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -194,7 +190,7 @@
           <label>NIP <small class="text-danger">*</small></label>
           <input type="text" name="NIP" placeholder="NIP" class="form-control" required>
           <br>
-          <button type="submit" class="btn btn-primary" name="addnewpetugas">Submit</button>
+          <button type="submit" class="btn btn-primary" name="addnewguru">Submit</button>
         </div>
         </form>
       </div>

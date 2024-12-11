@@ -9,7 +9,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/add_books.php">
+            <a class="nav-link" href="../admin/data_buku.php">
               <i class="mdi mdi-book-open-page-variant menu-icon"></i>
               <span class="menu-title">Books</span>
             </a>
@@ -23,20 +23,20 @@
             <div class="collapse" id="user">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> 
-                  <a class="nav-link" href="../admin/petugas.php">
+                  <a class="nav-link" href="../admin/data_petugas.php">
                   <i class="mdi mdi-account-tie menu-icon"></i>  
                   <span class="menu-title">Petugas</span>
                   </a>
                 </li>
                 <li class="nav-item"> 
-                  <a class="nav-link" href="../admin/siswa.php">
-                  <i class="mdi mdi-school menu-icon"></i>  
+                  <a class="nav-link" href="../admin/data_siswa.php">
+                  <i class="mdi mdi-account-multiple-outline menu-icon"></i>  
                   <span class="menu-title">Siswa</span>
                   </a>
                 </li>
                 <li class="nav-item"> 
-                  <a class="nav-link" href="../admin/guru.php">
-                  <i class="mdi mdi-account-multiple-outline menu-icon"></i>  
+                  <a class="nav-link" href="../admin/data_guru.php">
+                  <i class="mdi mdi-school menu-icon"></i>  
                   <span class="menu-title">Guru</span>
                   </a>
                 </li>

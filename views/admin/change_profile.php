@@ -26,6 +26,15 @@ if (isset($_POST['uploadbtn'])) {
         if (!is_dir($userDir)) {
             // Jika belum ada, buat direktori dengan permission 0755
             mkdir($userDir, 0755, true);
+        } else {
+            // Jika folder sudah ada, hapus gambar lama jika ada
+            $existingFile = glob($userDir . '*');  // Cari semua file di folder
+            if (!empty($existingFile)) {
+                // Hapus file gambar lama jika ada
+                foreach ($existingFile as $file) {
+                    unlink($file);  // Hapus file
+                }
+            }
         }
 
         // Lokasi file yang akan dipindahkan

@@ -1,8 +1,8 @@
 <?php
 
-require './include/Petugas_function.php';
+require './include/Admin_function.php';
 
-if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
+if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin') {
     header("Location: ./error-403.php");
 }
 
