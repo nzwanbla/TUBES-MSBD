@@ -1,4 +1,5 @@
 <?php
+session_start(); // Memulai sesi
 require '../include/Conn_Function.php';
 
 if (isset($_POST['loginbtn'])) {
@@ -18,7 +19,7 @@ if (isset($_POST['loginbtn'])) {
 
         // Verifikasi password menggunakan password_verify
         if (password_verify($inputPassword, $row['password'])) {
-            // Set session untuk user yang berhasil login
+            // Set session untuk pengguna yang berhasil login
             $_SESSION['id_user'] = $row['id_user'];
             $_SESSION['nama'] = $row['nama'];
             $_SESSION['username'] = $row['username'];
@@ -29,34 +30,61 @@ if (isset($_POST['loginbtn'])) {
             if ($userLevel == "Admin") {
                 $_SESSION['status'] = 'Admin';
                 header("Location: ./admin/index.php");
+                exit();
             } elseif ($userLevel == "Petugas") {
                 $_SESSION['status'] = 'Petugas';
                 header("Location: ./petugas/index.php");
+                exit();
             } elseif ($userLevel == "Pengunjung") {
                 $_SESSION['status'] = 'Pengunjung';
                 header("Location: ./pengunjung/index.php");
+                exit();
             } elseif ($userLevel == "Non Aktif") {
                 echo "
                     <script>
-                        alert('Akun Sudah Non Aktif');
-                        window.location = './login.php';
+                        window.onload = function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Sorry..',
+                                text: 'Akun Sudah Non Aktif',
+                                confirmButtonText: 'OK'
+                            }).then(function() {
+                                window.location = './login.php';
+                            });
+                        }
                     </script>
                 ";
+                exit();
             }
-            exit();
         } else {
             echo "
                 <script>
-                    alert('Username atau password tidak ditemukan!');
-                    window.location = './login.php';
+                    window.onload = function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Sorry..',
+                            text: 'Username atau password tidak ditemukan!',
+                            confirmButtonText: 'OK'
+                        }).then(function() {
+                            window.location = './login.php';
+                        });
+                    }
                 </script>
             ";
         }
     } else {
         echo "
             <script>
-                alert('Username atau password tidak ditemukan!');
-                window.location = './login.php';
+                window.onload = function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Sorry..',
+                        text: 'Username atau password tidak ditemukan!',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.location = './login.php';
+                    });
+                }
             </script>
         ";
     }
@@ -66,6 +94,8 @@ if (isset($_POST['loginbtn'])) {
 ?>
 
 
+
+
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
@@ -73,13 +103,14 @@ if (isset($_POST['loginbtn'])) {
 	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../assets/css/util.css">
 	<link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/dist/sweetalert2.min.css">
 </head>
 
 <body>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(../assets/images/bg.jpg);">
+				<div class="login100-form-title" style="background-image: url(../assets/images/bg-new.jpg);">
 					<span class="login100-form-title-1">
 						Sign In
 					</span>
@@ -116,4 +147,6 @@ if (isset($_POST['loginbtn'])) {
 			</div>
 		</div>
 	</div>
+
+    <script src="../assets/dist/sweetalert2.all.min.js"></script>
 </body>

@@ -188,6 +188,7 @@ iframe {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /*==================================================================
@@ -247,6 +248,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 43px 88px 93px 190px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -402,7 +404,7 @@ input.input100 {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #57b846;
+  background-color: #47479c;
   border-radius: 25px;
 
   font-family: Poppins-Regular;
@@ -420,6 +422,104 @@ input.input100 {
   background-color: #333333;
 }
 
+/* Modal */
+
+.modal-confirm {		
+    color: #636363;
+    width: 100%; /* Sesuaikan agar modal bisa responsif */
+    max-width: 325px; /* Ukuran maksimum modal */
+    margin: auto;
+    justify-content: center;
+}
+.modal-confirm .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+    justify-content: center;
+}
+.modal-confirm .modal-header {
+    border-bottom: none;   
+    position: relative;
+    padding-bottom: 0; /* Hindari ruang kosong di bawah header */
+}
+.modal-confirm h4 {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0; /* Tambahkan ruang di atas dan bawah */
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+    min-height: 40px;
+    border-radius: 3px; 
+}
+.modal-confirm .close {
+    position: absolute;
+    top: 10px; /* Atur agar tidak menempel pada tepi */
+    right: 10px; 
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    color: #636363;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.modal-confirm .close:hover {
+    opacity: 1;
+}
+.modal-confirm .modal-footer {
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    padding-top: 0; /* Kurangi jarak antara body dan footer */
+}	
+.modal-confirm .icon-box {
+    color: #fff;		
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -50px; /* Sesuaikan posisi */
+    width: 80px; /* Perkecil ukuran untuk estetika */
+    height: 80px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #ef513a;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-confirm .icon-box i {
+    font-size: 48px;
+    position: relative;
+    top: 4px;
+}
+.modal-confirm.modal-dialog {
+    margin-top: 10vh; /* Gunakan 'vh' agar responsif */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-confirm .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #ef513a;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border: none;
+    padding: 10px 20px; /* Tambahkan padding agar tombol lebih besar */
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+    background: #da2c12;
+    outline: none;
+}
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+    text-align: center;
+}
 
 /*------------------------------------------------------------------
 [ Responsive ]*/

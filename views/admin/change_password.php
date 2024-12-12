@@ -1,5 +1,5 @@
 <?php
-
+session_start(); 
 require './include/Admin_Function.php';
 
 if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin') {
@@ -18,8 +18,16 @@ if (isset($_POST['uploadbtn'])) {
     if (strlen($new_password) < 8) {
         echo "
             <script>
-                alert('Password baru harus terdiri dari minimal 8 karakter.');
-                window.history.back();
+                window.onload = function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Password baru harus terdiri dari minimal 8 karakter.',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.history.back();
+                    });
+                }
             </script>
         ";
         exit();
@@ -29,8 +37,16 @@ if (isset($_POST['uploadbtn'])) {
     if ($new_password !== $confirm_password) {
         echo "
             <script>
-                alert('Konfirmasi password tidak sesuai dengan password baru.');
-                window.history.back();
+                window.onload = function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Konfirmasi password tidak sesuai dengan password baru.',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.history.back();
+                    });
+                }
             </script>
         ";
         exit();
@@ -55,15 +71,31 @@ if (isset($_POST['uploadbtn'])) {
             if (updatePassword($data['username'], $hashed_password)) {
                 echo "
                     <script>
-                        alert('Password berhasil diperbarui.');
-                        window.location = 'change_password.php'; // Redirect ke halaman profil setelah berhasil
+                        window.onload = function() {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Password berhasil diperbarui.',
+                                confirmButtonText: 'OK'
+                            }).then(function() {
+                                window.location = 'change_password.php';
+                            });
+                        }
                     </script>
                 ";
             } else {
                 echo "
                     <script>
-                        alert('Gagal memperbarui password. Silakan coba lagi.');
-                        window.history.back();
+                        window.onload = function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Gagal memperbarui password. Silakan coba lagi.',
+                                confirmButtonText: 'OK'
+                            }).then(function() {
+                                window.history.back();
+                            });
+                        }
                     </script>
                 ";
             }
@@ -71,8 +103,16 @@ if (isset($_POST['uploadbtn'])) {
             // Jika password lama salah
             echo "
                 <script>
-                    alert('Password lama yang dimasukkan salah.');
-                    window.history.back();
+                    window.onload = function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Password lama yang dimasukkan salah.',
+                            confirmButtonText: 'OK'
+                        }).then(function() {
+                            window.history.back();
+                        });
+                    }
                 </script>
             ";
         }
@@ -92,7 +132,7 @@ if (isset($_POST['uploadbtn'])) {
 
 <?php include "./include/css.php"; ?>
 <link rel="stylesheet" href="../../assets/css/profile.css">
-
+<link rel="stylesheet" href="../../assets/dist/sweetalert2.min.css">
 
 </head>
 
@@ -165,6 +205,7 @@ if (isset($_POST['uploadbtn'])) {
 
     <?php include "./include/js.php"; ?>
     <script src="../../assets/js/profile.js"></script>
+    <script src="../../assets/dist/sweetalert2.all.min.js"></script>
 
 </body>
 

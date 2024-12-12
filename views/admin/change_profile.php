@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './include/Admin_Function.php';
 
 $data = getDataUsers($_SESSION['username']);
@@ -47,8 +48,14 @@ if (isset($_POST['uploadbtn'])) {
         if (!$uploaded) {
             echo "
                 <script>
-                    alert('Gagal mengupload file!');
-                    window.history.back();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal!',
+                        text: 'Gagal mengupload file!',
+                        confirmButtonText: 'OK'
+                    }).then(function() {
+                        window.history.back();
+                    });
                 </script>
             ";
             exit();  // Hentikan eksekusi lebih lanjut
@@ -77,8 +84,14 @@ if (isset($_POST['uploadbtn'])) {
 
         echo "
             <script>
-                alert('Gagal mengupdate data dan upload file!');
-                window.history.back();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Gagal mengupdate data dan upload file!',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    window.history.back();
+                });
             </script>
         ";
         exit();  // Hentikan eksekusi lebih lanjut
@@ -87,9 +100,17 @@ if (isset($_POST['uploadbtn'])) {
     // Jika berhasil, tampilkan pesan sukses
     echo "
         <script>
-            alert('File berhasil diupload dan data berhasil diupdate!');
-            window.location = './profile.php';
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'File berhasil diupload dan data berhasil diupdate!',
+                confirmButtonText: 'OK'
+            }).then(function() {
+                window.location = './profile.php';
+            });
         </script>
     ";
 }
 ?>
+
+
