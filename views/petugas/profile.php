@@ -50,7 +50,7 @@ $data = getDataUsers($_SESSION['username']);
                             <div class="card">
                                 <div class="card-body">
                                     <h3 class="card-title">PROFILE</h3>
-                                    <form class="forms-sample" method="POST" action="change_profile.php"
+                                    <form class="forms-sample" method="POST" action="./proses/change_profile.php"
                                         enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="username">Username</label>
@@ -120,6 +120,8 @@ $data = getDataUsers($_SESSION['username']);
         });
     </script>
 
+    
+<?php include "./crud/change_profile.php"; ?>
 
 </body>
 

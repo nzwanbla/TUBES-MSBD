@@ -22,3 +22,4 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shorcut icon" href="../../assets/images/library_icon.png" />
     <link rel="stylesheet" href="../../assets/css/tabs_admin.css">
+    <link rel="stylesheet" href="../../assets/dist/sweetalert2.min.css">

@@ -1,10 +1,7 @@
 <?php
 
-require './include/Admin_Function.php';
 
-
-
-if (isset($_POST['uploadbtn'])) {
+if (isset($_POST['btnTambahEks'])) {
 
     $id_buku = $_POST['id_buku'];
     $jumlah_eksemplar = $_POST['jumlah_eksemplar'];
@@ -24,8 +21,11 @@ if (isset($_POST['uploadbtn'])) {
     if (inputEksemplar($dataAssoc) != 1) {
         echo "
         <script>
-            alert('Gagal menambahkan data eksemplar buku!');
-            window.history.back();
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Gagal Menambahkan Data Eksemplar Buku!'
+            }).then(() => window.location = './data_buku.php');
         </script>
     ";
         exit();  // Hentikan eksekusi lebih lanjut
@@ -34,8 +34,11 @@ if (isset($_POST['uploadbtn'])) {
     // Jika berhasil, tampilkan pesan sukses
     echo "
     <script>
-        alert('Berhasil Menambahkan data eksemplar buku!');
-        window.location = './data_buku.php';
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: 'Data Eksemplar Buku Berhasil Ditambahkan!'
+        }).then(() => window.location = './data_buku.php');
     </script>";
 
 }

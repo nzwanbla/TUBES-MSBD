@@ -14,43 +14,6 @@ if (isset($_POST['uploadbtn'])) {
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Validasi password baru: minimal 8 karakter
-    if (strlen($new_password) < 8) {
-        echo "
-            <script>
-                window.onload = function() {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Password baru harus terdiri dari minimal 8 karakter.',
-                        confirmButtonText: 'OK'
-                    }).then(function() {
-                        window.history.back();
-                    });
-                }
-            </script>
-        ";
-        exit();
-    }
-
-    // Pastikan konfirmasi password sama dengan password baru
-    if ($new_password !== $confirm_password) {
-        echo "
-            <script>
-                window.onload = function() {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Konfirmasi password tidak sesuai dengan password baru.',
-                        confirmButtonText: 'OK'
-                    }).then(function() {
-                        window.history.back();
-                    });
-                }
-            </script>
-        ";
-        exit();
-    }
     $conn = conn();
     // Ambil password lama dari database
     $query = "SELECT password FROM users WHERE username = ?";
@@ -64,25 +27,61 @@ if (isset($_POST['uploadbtn'])) {
 
         // Verifikasi password lama
         if (password_verify($current_password, $cur_pass)) {
-            // Jika password lama benar, update password baru
-            $hashed_password = password_hash($new_password, PASSWORD_DEFAULT); // Enkripsi password baru
+            // Validasi konfirmasi password sama dengan password baru
+            if ($new_password === $confirm_password) {
+                // Validasi password baru: minimal 8 karakter
+                if (strlen($new_password) >= 8) {
+                    // Jika validasi lolos, update password baru
+                    $hashed_password = password_hash($new_password, PASSWORD_DEFAULT); // Enkripsi password baru
 
-            // Panggil fungsi untuk memperbarui password di database
-            if (updatePassword($data['username'], $hashed_password)) {
-                echo "
-                    <script>
-                        window.onload = function() {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success',
-                                text: 'Password berhasil diperbarui.',
-                                confirmButtonText: 'OK'
-                            }).then(function() {
-                                window.location = 'change_password.php';
-                            });
-                        }
-                    </script>
-                ";
+                    // Panggil fungsi untuk memperbarui password di database
+                    if (updatePassword($data['username'], $hashed_password)) {
+                        echo "
+                            <script>
+                                window.onload = function() {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success',
+                                        text: 'Password berhasil diperbarui.',
+                                        confirmButtonText: 'OK'
+                                    }).then(function() {
+                                        window.location = 'change_password.php';
+                                    });
+                                }
+                            </script>
+                        ";
+                    } else {
+                        echo "
+                            <script>
+                                window.onload = function() {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error',
+                                        text: 'Gagal memperbarui password. Silakan coba lagi.',
+                                        confirmButtonText: 'OK'
+                                    }).then(function() {
+                                        window.location = 'change_password.php';
+                                    });
+                                }
+                            </script>
+                        ";
+                    }
+                } else {
+                    echo "
+                        <script>
+                            window.onload = function() {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: 'Password baru harus terdiri dari minimal 8 karakter.',
+                                    confirmButtonText: 'OK'
+                                }).then(function() {
+                                    window.location = './change_password.php';
+                                });
+                            }
+                        </script>
+                    ";
+                }
             } else {
                 echo "
                     <script>
@@ -90,10 +89,10 @@ if (isset($_POST['uploadbtn'])) {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Error',
-                                text: 'Gagal memperbarui password. Silakan coba lagi.',
+                                text: 'Konfirmasi password tidak sesuai dengan password baru.',
                                 confirmButtonText: 'OK'
                             }).then(function() {
-                                window.history.back();
+                                window.location = 'change_password.php';
                             });
                         }
                     </script>
@@ -110,7 +109,7 @@ if (isset($_POST['uploadbtn'])) {
                             text: 'Password lama yang dimasukkan salah.',
                             confirmButtonText: 'OK'
                         }).then(function() {
-                            window.history.back();
+                            window.location = 'change_password.php';
                         });
                     }
                 </script>

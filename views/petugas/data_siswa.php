@@ -1,12 +1,14 @@
 <?php
 
-require './include/Admin_function.php';
+require './include/Petugas_function.php';
 
-if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin') {
+if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
 	header("Location: ./error-403.php");
 }
 
-$res = getDataGuru();
+$kelasX = getDataSiswa("X");
+$kelasXI = getDataSiswa("XI");
+$kelasXII = getDataSiswa("XII");
 ?>
 
 <!DOCTYPE html>
@@ -44,15 +46,15 @@ $res = getDataGuru();
 			?>
 
 			<ul id="nav-tabs">
-				<li><a href="#">Data Guru</a>
+				<li><a href="#">X</a>
 					<section style="max-height: 500px; overflow-y: auto;">
 
 						<div class="card mb-4">
 							<div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
-								<h4 class="m-0 font-weight-bold text-primary">Data Guru</h4>
+								<h4 class="m-0 font-weight-bold text-primary">Data Siswa</h4>
 								<button type="button" class="btn btn-primary" data-toggle="modal"
-									data-target="#tambahGuru">
-									Tambah Guru
+									data-target="#tambahSiswa">
+									Tambah Siswa
 								</button>
 							</div>
 							<div class="table-responsive p-3">
@@ -63,42 +65,194 @@ $res = getDataGuru();
 											<th>Profile</th>
 											<th>Username/NISN</th>
 											<th>Nama</th>
-                      <th>Alamat</th>
+											<th>Kelas</th>
+											<th>Tahun Masuk</th>
+											<th>Alamat</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										$i = 1;
-										foreach ($res as $data) {
+										foreach ($kelasX as $kelas10) {
 											?>
 											<tr>
 												<td><?= $i ?></td>
-												<td><img src="<?= $data['foto_profil'] ?>"
-														alt="<?= $data['nama_pengunjung'] ?>" width="50" height="75">
+												<td><img src="<?= $kelas10['foto_profil'] ?>"
+														alt="<?= $kelas10['nama_pengunjung'] ?>" width="50" height="75">
 												</td>
-												<td><?= $data['username'] ?></td>
-												<td><?= $data['nama_pengunjung'] ?></td>
-												<td><?= $data['alamat'] ?></td>
+												<td><?= $kelas10['username'] ?></td>
+												<td><?= $kelas10['nama_pengunjung'] ?></td>
+												<td><?= $kelas10['kelas'] ?></td>
+												<td><?= $kelas10['tahun_masuk'] ?></td>
+												<td><?= $kelas10['alamat'] ?></td>
 
 												<td>
 													<button type="button"
 														class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center"
 														data-bs-toggle="modal" data-bs-target="#tombolEdit"
-														data-id="<?= $data['id_user'] ?>"
-														data-username="<?= $data['username'] ?>"
-														data-nama="<?= $data['nama_pengunjung'] ?>"
-														data-foto_profil="<?= $data['foto_profil'] ?>"
-														data-role="<?= $data['role'] ?>"
-														data-kelas="<?= $data['kelas'] ?>"
-														data-tahun_masuk="<?= $data['tahun_masuk'] ?>">
+														data-id="<?= $kelas10['id_user'] ?>"
+														data-username="<?= $kelas10['username'] ?>"
+														data-nama="<?= $kelas10['nama_pengunjung'] ?>"
+														data-foto_profil="<?= $kelas10['foto_profil'] ?>"
+														data-role="<?= $kelas10['role'] ?>"
+														data-kelas="<?= $kelas10['kelas'] ?>"
+														data-tahun_masuk="<?= $kelas10['tahun_masuk'] ?>">
 														<i class="bi bi-pencil"></i>
 													</button>
 													<button type="button"
 														class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center"
 														data-bs-toggle="modal" data-bs-target="#tombolReset"
-														data-id="<?= $data['id_user'] ?>"
-														data-username="<?= $data['username'] ?>">
+														data-id="<?= $kelas10['id_user'] ?>"
+														data-username="<?= $kelas10['username'] ?>">
+														<i class="bi bi-arrow-repeat"></i>
+													</button>
+												</td>
+											</tr>
+											<?php $i++;
+										}
+										?>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+				</li>
+
+				<li><a href="#">XI</a>
+					<section style="max-height: 500px; overflow-y: auto;">
+
+						<div class="card mb-4">
+							<div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
+								<h4 class="m-0 font-weight-bold text-primary">Data Siswa</h4>
+								<button type="button" class="btn btn-primary" data-toggle="modal"
+									data-target="#tambahSiswa">
+									Tambah Siswa
+								</button>
+							</div>
+							<div class="table-responsive p-3">
+								<table class="table align-items-center table-flush table-hover" id="dataTableHover1">
+									<thead class="bg-primary text-white">
+										<tr>
+											<th>No</th>
+											<th>Profile</th>
+											<th>Username/NISN</th>
+											<th>Nama</th>
+											<th>Kelas</th>
+											<th>Tahun Masuk</th>
+											<th>Alamat</th>
+											<th>Aksi</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+										$i = 1;
+										foreach ($kelasXI as $kelas11) {
+											?>
+											<tr>
+												<td><?= $i ?></td>
+												<td><img src="<?= $kelas11['foto_profil'] ?>"
+														alt="<?= $kelas11['nama_pengunjung'] ?>" width="50" height="75">
+												</td>
+												<td><?= $kelas11['username'] ?></td>
+												<td><?= $kelas11['nama_pengunjung'] ?></td>
+												<td><?= $kelas11['kelas'] ?></td>
+												<td><?= $kelas11['tahun_masuk'] ?></td>
+												<td><?= $kelas11['alamat'] ?></td>
+
+												<td>
+													<button type="button"
+														class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center"
+														data-bs-toggle="modal" data-bs-target="#tombolEdit"
+														data-id="<?= $kelas11['id_user'] ?>"
+														data-username="<?= $kelas11['username'] ?>"
+														data-nama="<?= $kelas11['nama_pengunjung'] ?>"
+														data-foto_profil="<?= $kelas11['foto_profil'] ?>"
+														data-role="<?= $kelas11['role'] ?>"
+														data-kelas="<?= $kelas11['kelas'] ?>"
+														data-tahun_masuk="<?= $kelas11['tahun_masuk'] ?>">
+														<i class="bi bi-pencil"></i>
+													</button>
+													<button type="button"
+														class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center"
+														data-bs-toggle="modal" data-bs-target="#tombolReset"
+														data-id="<?= $kelas11['id_user'] ?>"
+														data-username="<?= $kelas11['username'] ?>">
+														<i class="bi bi-arrow-repeat"></i>
+													</button>
+												</td>
+											</tr>
+											<?php $i++;
+										}
+										?>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
+				</li>
+
+				<li><a href="#">XII</a>
+					<section style="max-height: 500px; overflow-y: auto;">
+
+						<div class="card mb-4">
+							<div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
+								<h4 class="m-0 font-weight-bold text-primary">Data Siswa</h4>
+								<button type="button" class="btn btn-primary" data-toggle="modal"
+									data-target="#tambahSiswa">
+									Tambah Siswa
+								</button>
+							</div>
+							<div class="table-responsive p-3">
+								<table class="table align-items-center table-flush table-hover" id="dataTableHover1">
+									<thead class="bg-primary text-white">
+										<tr>
+											<th>No</th>
+											<th>Profile</th>
+											<th>Username/NISN</th>
+											<th>Nama</th>
+											<th>Kelas</th>
+											<th>Tahun Masuk</th>
+											<th>Alamat</th>
+											<th>Aksi</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+										$i = 1;
+										foreach ($kelasXII as $kelas12) {
+											?>
+											<tr>
+												<td><?= $i ?></td>
+												<td><img src="<?= $kelas12['foto_profil'] ?>"
+														alt="<?= $kelas12['nama_pengunjung'] ?>" width="50" height="75">
+												</td>
+												<td><?= $kelas12['username'] ?></td>
+												<td><?= $kelas12['nama_pengunjung'] ?></td>
+												<td><?= $kelas12['kelas'] ?></td>
+												<td><?= $kelas12['tahun_masuk'] ?></td>
+												<td><?= $kelas12['alamat'] ?></td>
+
+												<td>
+													<button type="button"
+														class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center"
+														data-bs-toggle="modal" data-bs-target="#tombolEdit"
+														data-id="<?= $kelas12['id_user'] ?>"
+														data-username="<?= $kelas12['username'] ?>"
+														data-nama="<?= $kelas12['nama_pengunjung'] ?>"
+														data-foto_profil="<?= $kelas12['foto_profil'] ?>"
+														data-role="<?= $kelas12['role'] ?>"
+														data-kelas="<?= $kelas12['kelas'] ?>"
+														data-tahun_masuk="<?= $kelas12['tahun_masuk'] ?>">
+														<i class="bi bi-pencil"></i>
+													</button>
+													<button type="button"
+														class="btn btn-outline-primary mt-2 d-flex justify-content-center align-items-center"
+														data-bs-toggle="modal" data-bs-target="#tombolReset"
+														data-id="<?= $kelas12['id_user'] ?>"
+														data-username="<?= $kelas12['username'] ?>">
 														<i class="bi bi-arrow-repeat"></i>
 													</button>
 												</td>
@@ -130,13 +284,13 @@ $res = getDataGuru();
 </body>
 
 <!-- The Modal -->
-<div class="modal fade" id="tambahGuru">
+<div class="modal fade" id="tambahSiswa">
 	<div class="modal-dialog">
 		<div class="modal-content">
 
 			<!-- Modal Header -->
 			<div class="modal-header">
-				<h4 class="modal-title">Tambah Guru</h4>
+				<h4 class="modal-title">Tambah Siswa</h4>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 
@@ -158,6 +312,37 @@ $res = getDataGuru();
 							required>
 					</div>
 
+					<!-- Kelas -->
+					<div class="form-group">
+						<label for="Kelas">Kelas <small class="text-danger">*</small></label>
+						<select class="form-control" name="kelas" id="Kelas" required>
+							<option value="" disabled selected>Pilih Kelas</option>
+							<optgroup label="IPA">
+								<option value="IPA 1">IPA 1</option>
+								<option value="IPA 2">IPA 2</option>
+								<option value="IPA 3">IPA 3</option>
+								<option value="IPA 4">IPA 4</option>
+								<option value="IPA 5">IPA 5</option>
+								<option value="IPA 6">IPA 6</option>
+								<option value="IPA 7">IPA 7</option>
+								<option value="IPA 8">IPA 8</option>
+							</optgroup>
+							<optgroup label="IPS">
+								<option value="IPS 1">IPS 1</option>
+								<option value="IPS 2">IPS 2</option>
+								<option value="IPS 3">IPS 3</option>
+								<option value="IPS 4">IPS 4</option>
+							</optgroup>
+						</select>
+					</div>
+
+					<!-- Tahun Masuk -->
+					<div class="form-group">
+						<label for="TahunMasuk">Tahun Masuk <small class="text-danger">*</small></label>
+						<input type="number" class="form-control" name="tahun_masuk" id="TahunMasuk"
+							placeholder="Masukkan Tahun Masuk" required min="2000" max="<?php echo date('Y'); ?>">
+					</div>
+
 					<!-- Upload Foto Profil -->
 					<div class="form-group">
 						<label>Upload Foto Profil</label>
@@ -173,7 +358,7 @@ $res = getDataGuru();
 					</div>
 
 					<!-- Tombol Submit -->
-					<button type="submit" name="btnTambahGuru" class="btn btn-primary mr-2">Simpan Perubahan</button>
+					<button type="submit" name="btnTambahSiswa" class="btn btn-primary mr-2">Simpan Perubahan</button>
 				</div>
 			</form>
 		</div>
@@ -184,7 +369,7 @@ $res = getDataGuru();
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Edit Guru</h4>
+				<h4 class="modal-title">Edit Siswa</h4>
 				<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
 			</div>
 
@@ -205,6 +390,37 @@ $res = getDataGuru();
 						<label for="Nama">Nama <small class="text-danger">*</small></label>
 						<input type="text" class="form-control" name="nama" id="Nama" placeholder="Masukkan Nama"
 							required>
+					</div>
+
+					<!-- Kelas -->
+					<div class="form-group">
+						<label for="Kelas">Kelas <small class="text-danger">*</small></label>
+						<select class="form-control" name="kelas" id="Kelas" required>
+							<option value="" disabled selected>Pilih Kelas</option>
+							<optgroup label="IPA">
+								<option value="IPA 1">IPA 1</option>
+								<option value="IPA 2">IPA 2</option>
+								<option value="IPA 3">IPA 3</option>
+								<option value="IPA 4">IPA 4</option>
+								<option value="IPA 5">IPA 5</option>
+								<option value="IPA 6">IPA 6</option>
+								<option value="IPA 7">IPA 7</option>
+								<option value="IPA 8">IPA 8</option>
+							</optgroup>
+							<optgroup label="IPS">
+								<option value="IPS 1">IPS 1</option>
+								<option value="IPS 2">IPS 2</option>
+								<option value="IPS 3">IPS 3</option>
+								<option value="IPS 4">IPS 4</option>
+							</optgroup>
+						</select>
+					</div>
+
+					<!-- Tahun Masuk -->
+					<div class="form-group">
+						<label for="TahunMasuk">Tahun Masuk <small class="text-danger">*</small></label>
+						<input type="number" class="form-control" name="tahun_masuk" id="TahunMasuk"
+							placeholder="Masukkan Tahun Masuk" required min="2000" max="<?php echo date('Y'); ?>">
 					</div>
 
 					<div class="form-group">
@@ -242,7 +458,7 @@ $res = getDataGuru();
 						</div>
 					</div>
 					<!-- Tombol Submit -->
-					<button type="submit" name="btnEditGuru" class="btn btn-primary mr-2">Simpan Perubahan</button>
+					<button type="submit" name="btnEditSiswa" class="btn btn-primary mr-2">Simpan Perubahan</button>
 				</div>
 			</form>
 
@@ -346,8 +562,8 @@ $res = getDataGuru();
 </script>
 
 
-<?php include "./crud/input_guru.php" ?>
-<?php include "./crud/edit_guru.php" ?>
+<?php include "./crud/input_siswa.php" ?>
+<?php include "./crud/edit_siswa.php" ?>
 <?php include "./crud/reset_password.php" ?>
 
 </html>

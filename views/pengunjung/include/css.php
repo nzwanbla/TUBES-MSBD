@@ -10,3 +10,4 @@
     <link rel="stylesheet" href="../../assets/css/flickity.min.css">
     <link rel="shorcut icon" href="../../assets/images/library_icon.png" />
     <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../assets/dist/sweetalert2.min.css">

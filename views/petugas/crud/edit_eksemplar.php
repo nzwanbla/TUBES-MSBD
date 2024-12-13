@@ -1,10 +1,7 @@
 <?php
 
-require './include/Petugas_Function.php';
 
-
-
-if (isset($_POST['uploadbtn'])) {
+if (isset($_POST['btnEditEks'])) {
 
     $id_eksemplar = $_POST['id_eksemplar'];
     $lokasi_rak = $_POST['lokasi_rak'];
@@ -28,16 +25,23 @@ if (isset($_POST['uploadbtn'])) {
 
         echo "
         <script>
-            alert('Berhasil Mengupdate data eksemplar buku!');
-            window.location = './data_buku.php';
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Data Eksemplar Buku Berhasil Diupdate!'
+            }).then(() => window.location = './data_buku.php');
         </script>";
     } else {
 
         echo "
         <script>
-            alert('Gagal mengupdate data eksemplar buku!');
-            window.history.back();
-        </script>";
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Gagal Mengedit Eksemplar Buku!'
+            }).then(() => window.location = './data_buku.php');
+        </script>
+    ";
     }
 
     // Tutup statement

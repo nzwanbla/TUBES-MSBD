@@ -1,10 +1,7 @@
 <?php
 
-require './include/Admin_Function.php';
 
-
-
-if (isset($_POST['uploadbtn'])) {
+if (isset($_POST['btnResetPass'])) {
     $id_user = $_POST['id_user'];
     $username = $_POST['username'];
     $password = password_hash($username, PASSWORD_DEFAULT);
@@ -17,20 +14,26 @@ if (isset($_POST['uploadbtn'])) {
     if ($res != 1) {
 
         echo "
-            <script>
-                alert('Gagal melakukan reset password');
-                window.history.back();
-            </script>
-        ";
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Gagal Melakukan Reset Password!'
+            }).then(() => window.history.back());
+        </script>
+    ";
         exit();  // Hentikan eksekusi lebih lanjut
     }
 
     // Jika berhasil, tampilkan pesan sukses
     echo "
-        <script>
-            alert('Password berhasil direset');
-            window.location = './data_petugas.php';
-        </script>";
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: 'Reset Password Berhasil Dilakukan!'
+        }).then(() => window.history.back());
+    </script>";
 
 
 

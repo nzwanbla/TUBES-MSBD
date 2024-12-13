@@ -1,9 +1,7 @@
 <?php
 
-require './include/Petugas_Function.php';
+if (isset($_POST['btnTambahBuku'])) {
 
-if (isset($_POST['uploadbtn'])) {
-    $id_buku = $_POST['id_buku'];
     $judul = $_POST['judul'];
     $penulis = $_POST['penulis'];
     $jenis_buku = $_POST['jenis_buku'];
@@ -11,7 +9,6 @@ if (isset($_POST['uploadbtn'])) {
     $tahun_terbit = $_POST['tahun_terbit'];
     $penerbit = $_POST['penerbit'];
     $sinopsis = $_POST['sinopsis'];
-    $foto_buku = $_POST['fotoBuku'];
 
     // Cek jika genre tidak dipilih, set $id_genres ke NULL
     if (isset($_POST['genre']) && !empty($_POST['genre'])) {
@@ -19,7 +16,9 @@ if (isset($_POST['uploadbtn'])) {
     } else {
         $id_genres = '1';  // Set ke NULL jika tidak ada genre yang dipilih
     }
-
+    
+    $jumlah_eksemplar = $_POST['jumlah_eksemplar'];
+    $lokasi_rak = $_POST['lokasi_rak'];
     $id_user_penginput = $_SESSION['id_user']; 
 
     if ($_FILES['berkas']['error'] == UPLOAD_ERR_OK) {
@@ -39,15 +38,6 @@ if (isset($_POST['uploadbtn'])) {
         if (!is_dir($bookDir)) {
             // Jika belum ada, buat direktori dengan permission 0755
             mkdir($bookDir, 0755, true);
-        } else {
-            // Jika folder sudah ada, hapus gambar lama jika ada
-            $existingFile = glob($bookDir . '*');  // Cari semua file di folder
-            if (!empty($existingFile)) {
-                // Hapus file gambar lama jika ada
-                foreach ($existingFile as $file) {
-                    unlink($file);  // Hapus file
-                }
-            }
         }
 
         // Lokasi file yang akan dipindahkan
@@ -60,20 +50,21 @@ if (isset($_POST['uploadbtn'])) {
         if (!$uploaded) {
             echo "
             <script>
-                alert('Gagal mengupload file!');
-                window.history.back();
-            </script>
-        ";
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Gagal mengupload file!'
+                }).then(() => window.location = './data_buku.php');
+            </script>";
             exit();  // Hentikan eksekusi lebih lanjut
         }
     } else {
         // Jika tidak ada file yang diupload, gunakan gambar default
-        $fileLoc = $foto_buku;
+        $fileLoc = '../../assets/images/book/default_book.jpg';
     }
 
     // Array data untuk dimasukkan ke database
     $dataAssoc = array(
-        'id_buku' => $id_buku,
         'judul' => $judul,
         'penulis' => $penulis,
         'jenis_buku' => $jenis_buku,
@@ -83,11 +74,13 @@ if (isset($_POST['uploadbtn'])) {
         'foto_buku' => $fileLoc,  // Path ke gambar buku
         'sinopsis' => $sinopsis,
         'genre' => $id_genres,  // ID genre buku
+        'jumlah_eksemplar' => $jumlah_eksemplar,
+        'lokasi_rak' => $lokasi_rak,
         'id_user_penginput' => $id_user_penginput  // ID pengguna penginput dari session
     );
 
     // Panggil procedure untuk memasukkan data buku ke dalam database
-    if (updateBuku($dataAssoc) != 1) {
+    if (inputBuku($dataAssoc) != 1) {
         // Jika update gagal dan file baru diupload, hapus file yang sudah diupload
         if (isset($uploaded) && !$uploaded) {
             unlink($fileLoc);  // Hapus file yang diupload
@@ -95,18 +88,24 @@ if (isset($_POST['uploadbtn'])) {
 
         echo "
         <script>
-            alert('Gagal mengupdate data dan upload file!');
-            window.history.back();
-        </script>
-    ";
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Gagal mengupdate data dan upload file!'
+            }).then(() => window.location = './data_buku.php');
+        </script>";
         exit();  // Hentikan eksekusi lebih lanjut
     }
 
     // Jika berhasil, tampilkan pesan sukses
     echo "
     <script>
-        alert('File berhasil diupload dan data berhasil diupdate!');
-        window.location = './data_buku.php';
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: 'Data Buku Berhasil Ditambahkan!'
+        }).then(() => window.location = './data_buku.php');
     </script>";
+
 }
 ?>

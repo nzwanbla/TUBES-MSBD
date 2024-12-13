@@ -1,8 +1,6 @@
 <?php
 
-require './include/Admin_Function.php';
-
-if (isset($_POST['uploadbtn'])) {
+if (isset($_POST['btnEditBuku'])) {
     $id_buku = $_POST['id_buku'];
     $judul = $_POST['judul'];
     $penulis = $_POST['penulis'];
@@ -20,7 +18,7 @@ if (isset($_POST['uploadbtn'])) {
         $id_genres = '1';  // Set ke NULL jika tidak ada genre yang dipilih
     }
 
-    $id_user_penginput = $_SESSION['id_user']; 
+    $id_user_penginput = $_SESSION['id_user'];
 
     if ($_FILES['berkas']['error'] == UPLOAD_ERR_OK) {
         $namaFile = $_FILES['berkas']['name'];
@@ -60,8 +58,11 @@ if (isset($_POST['uploadbtn'])) {
         if (!$uploaded) {
             echo "
             <script>
-                alert('Gagal mengupload file!');
-                window.history.back();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Gagal Mengupload File!'
+                }).then(() => window.location = './data_buku.php');
             </script>
         ";
             exit();  // Hentikan eksekusi lebih lanjut
@@ -95,8 +96,11 @@ if (isset($_POST['uploadbtn'])) {
 
         echo "
         <script>
-            alert('Gagal mengupdate data dan upload file!');
-            window.history.back();
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Gagal Mengedit Buku!'
+            }).then(() => window.location = './data_buku.php');
         </script>
     ";
         exit();  // Hentikan eksekusi lebih lanjut
@@ -105,8 +109,11 @@ if (isset($_POST['uploadbtn'])) {
     // Jika berhasil, tampilkan pesan sukses
     echo "
     <script>
-        alert('File berhasil diupload dan data berhasil diupdate!');
-        window.location = './data_buku.php';
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: 'Data Buku Berhasil Diupdate!'
+        }).then(() => window.location = './data_buku.php');
     </script>";
 }
 ?>

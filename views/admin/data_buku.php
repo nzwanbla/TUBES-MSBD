@@ -424,4 +424,10 @@ $genres = getDataGenre();
     });
 </script>
 
+<?php include "./crud/input_buku.php"; ?>
+<?php include "./crud/input_eksemplar.php"; ?>
+<?php include "./crud/edit_eksemplar.php"; ?>
+<?php include "./crud/hapus_eksemplar.php"; ?>
+<?php include "./crud/edit_buku.php"; ?>
+
 </html>

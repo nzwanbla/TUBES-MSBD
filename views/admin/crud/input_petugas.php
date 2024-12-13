@@ -1,10 +1,7 @@
 <?php
 
-require './include/Admin_Function.php';
 
-
-
-if (isset($_POST['uploadbtn'])) {
+if (isset($_POST['btnTambahPetugas'])) {
     $username = $_POST['username'];
     $nama = $_POST['nama'];
     $role = 'Petugas';
@@ -13,11 +10,14 @@ if (isset($_POST['uploadbtn'])) {
 
     $res = query("SELECT username FROM users WHERE username='$username'");
 
-    if ($res == true) {
+    if ($res && mysqli_num_rows($res) > 0) {
         echo "
         <script>
-            alert('Username Sudah digunakan');
-            window.history.back();
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Username Sudah Digunakan!'
+            }).then(() => window.location = './data_petugas.php');
         </script>
     ";
     } 
@@ -58,8 +58,11 @@ if (isset($_POST['uploadbtn'])) {
             if (!$uploaded) {
                 echo "
                     <script>
-                        alert('Gagal mengupload file!');
-                        window.history.back();
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            text: 'Gagal Mengupload File!'
+                        }).then(() => window.location = './data_petugas.php');
                     </script>
                 ";
                 exit();  // Hentikan eksekusi lebih lanjut
@@ -87,19 +90,25 @@ if (isset($_POST['uploadbtn'])) {
             }
 
             echo "
-            <script>
-                alert('Gagal mengupdate data dan upload file!');
-                window.history.back();
-            </script>
-        ";
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal!',
+                        text: 'Gagal Menambahkan data dan mengupload file!'
+                    }).then(() => window.location = './data_petugas.php');
+                </script>
+            ";
             exit();  // Hentikan eksekusi lebih lanjut
         }
 
         // Jika berhasil, tampilkan pesan sukses
         echo "
         <script>
-            alert('File berhasil diupload dan data berhasil diupdate!');
-            window.location = './data_petugas.php';
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Data Petugas Berhasil Ditambahkan!'
+            }).then(() => window.location = './data_petugas.php');
         </script>";
     }
 
