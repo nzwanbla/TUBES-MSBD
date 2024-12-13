@@ -10,7 +10,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="input_buku.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
                 <div class="modal-body">
                     <!-- Judul Buku -->
                     <div class="form-group">
@@ -145,7 +145,7 @@
                     </div>
 
                     <!-- Tombol Submit -->
-                    <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Simpan Perubahan</button>
+                    <button type="submit" name="btnTambahBuku" class="btn btn-primary mr-2">Simpan Perubahan</button>
                 </div>
             </form>
 
@@ -164,7 +164,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="input_eksemplar.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <input type="hidden" name="id_buku" id="idBuku">
@@ -190,7 +190,7 @@
                     </div>
 
                     <!-- Tombol Submit -->
-                    <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Simpan Perubahan</button>
+                    <button type="submit" name="btnTambahEks" class="btn btn-primary mr-2">Simpan Perubahan</button>
                 </div>
             </form>
 
@@ -209,7 +209,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="edit_buku.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <input type="hidden" name="id_buku" id="idBuku">
@@ -333,7 +333,7 @@
                         </div>
                     </div>
                     <!-- Tombol Submit -->
-                    <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Simpan Perubahan</button>
+                    <button type="submit" name="btnEditBuku" class="btn btn-primary mr-2">Simpan Perubahan</button>
                 </div>
             </form>
 
@@ -352,7 +352,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="edit_eksemplar.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <input type="hidden" name="id_eksemplar" id="idEksemplar">
@@ -413,7 +413,7 @@
                     </div>
 
                     <!-- Tombol Submit -->
-                    <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Simpan Perubahan</button>
+                    <button type="submit" name="btnEditEks" class="btn btn-primary mr-2">Simpan Perubahan</button>
                 </div>
             </form>
 
@@ -435,10 +435,10 @@
             </div>
             <!-- Modal Footer -->
             <div class="modal-footer">
-                <form action="hapus_eksemplar.php" method="POST">
+                <form action="" method="POST">
                     <input type="hidden" name="id_eksemplar_buku" id="idEksemplarBuku">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    <button type="submit" name="btnHapusEks" class="btn btn-danger">Hapus</button>
                 </form>
             </div>
         </div>

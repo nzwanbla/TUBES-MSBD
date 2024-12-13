@@ -1,10 +1,6 @@
 <?php
 
-require './include/Admin_Function.php';
-
-
-
-if (isset($_POST['uploadbtn'])) {
+if (isset($_POST['btnTambahBuku'])) {
 
     $judul = $_POST['judul'];
     $penulis = $_POST['penulis'];
@@ -54,10 +50,12 @@ if (isset($_POST['uploadbtn'])) {
         if (!$uploaded) {
             echo "
             <script>
-                alert('Gagal mengupload file!');
-                window.history.back();
-            </script>
-        ";
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Gagal mengupload file!'
+                }).then(() => window.location = './data_buku.php');
+            </script>";
             exit();  // Hentikan eksekusi lebih lanjut
         }
     } else {
@@ -90,18 +88,23 @@ if (isset($_POST['uploadbtn'])) {
 
         echo "
         <script>
-            alert('Gagal mengupdate data dan upload file!');
-            window.history.back();
-        </script>
-    ";
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Gagal mengupdate data dan upload file!'
+            }).then(() => window.location = './data_buku.php');
+        </script>";
         exit();  // Hentikan eksekusi lebih lanjut
     }
 
     // Jika berhasil, tampilkan pesan sukses
     echo "
     <script>
-        alert('File berhasil diupload dan data berhasil diupdate!');
-        window.location = './data_buku.php';
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: 'Data Buku Berhasil Ditambahkan!'
+        }).then(() => window.location = './data_buku.php');
     </script>";
 
 }

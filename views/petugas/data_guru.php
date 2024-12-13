@@ -1,8 +1,8 @@
 <?php
 
-require './include/Admin_function.php';
+require './include/Petugas_function.php';
 
-if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin') {
+if (empty($_SESSION['username']) or $_SESSION['status'] != 'Petugas') {
 	header("Location: ./error-403.php");
 }
 
@@ -63,7 +63,7 @@ $res = getDataGuru();
 											<th>Profile</th>
 											<th>Username/NISN</th>
 											<th>Nama</th>
-                      <th>Alamat</th>
+                      						<th>Alamat</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>

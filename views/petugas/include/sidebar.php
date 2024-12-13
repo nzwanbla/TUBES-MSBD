@@ -1,43 +1,69 @@
-<!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="./index.php">
+        <i class="mdi mdi-trello menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#userMenu" role="button" aria-expanded="false" aria-controls="userMenu">
+        <i class="mdi mdi-account-multiple menu-icon"></i>
+        <span class="menu-title">Manajemen User</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="userMenu">
+        <ul class="nav flex-column sub-menu">
+          
           <li class="nav-item">
-            <a class="nav-link" href="../petugas/index.php">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+            <a class="nav-link" href="./data_siswa.php">
+              <i class="mdi mdi-account-multiple-outline menu-icon"></i>
+              <span class="menu-title">Siswa</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../petugas/data_buku.php">
-              <i class="mdi mdi-book-open-page-variant menu-icon"></i>
-              <span class="menu-title">Books</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#laporan" aria-expanded="false" aria-controls="laporan">
-              <i class="mdi mdi-file-chart menu-icon"></i>
-              <span class="menu-title">Laporan</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="laporan">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../petugas/peminjaman.php">Data Peminjaman</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../petugas/pengembalian.php">Data Pengembalian</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="../petugas/denda.php">
-                <i class="mdi mdi-bank-minus menu-icon"></i>
-                <span class="menu-title">Data Denda</span>
-              </a>
-          <li class="nav-item">
-            <a class="nav-link" href="../petugas/logout_petugas.php">
-              <i class="mdi mdi-logout menu-icon"></i>
-              <span class="menu-title">Logout</span>
+            <a class="nav-link" href="./data_guru.php">
+              <i class="mdi mdi-school menu-icon"></i>
+              <span class="menu-title">Guru</span>
             </a>
           </li>
         </ul>
-      </nav>
-      <!-- partial -->
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#bookMenu" role="button" aria-expanded="false" aria-controls="bookMenu">
+        <i class="mdi mdi-book-open-page-variant menu-icon"></i>
+        <span class="menu-title">Manajemen Buku</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="bookMenu">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="./data_buku.php">
+              <i class="mdi mdi-book-multiple menu-icon"></i>
+              <span class="menu-title">Data Buku</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./katalog.php">
+              <i class="bi bi-bookshelf menu-icon"></i>
+              <span class="menu-title">Katalog Buku</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./data_peminjaman.php">
+        <i class="mdi mdi-account-card-details menu-icon"></i>
+        <span class="menu-title">Data Peminjaman</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="../logout.php">
+        <i class="mdi mdi-logout menu-icon"></i>
+        <span class="menu-title">Logout</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -138,7 +138,7 @@ $res = getDataPetugas();
 			</div>
 
 			<!-- Modal body -->
-			<form class="forms-sample" method="POST" action="input_petugas.php" enctype="multipart/form-data">
+			<form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
 				<div class="modal-body">
 
 					<div class="form-group">
@@ -168,7 +168,7 @@ $res = getDataPetugas();
 					</div>
 
 					<!-- Tombol Submit -->
-					<button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Simpan Perubahan</button>
+					<button type="submit" name="btnTambahPetugas" class="btn btn-primary mr-2">Simpan Perubahan</button>
 				</div>
 			</form>
 		</div>
@@ -183,7 +183,7 @@ $res = getDataPetugas();
 				<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
 			</div>
 
-			<form class="forms-sample" method="POST" action="edit_petugas.php" enctype="multipart/form-data">
+			<form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
 				<div class="modal-body">
 
 
@@ -193,7 +193,7 @@ $res = getDataPetugas();
 					<div class="form-group">
 						<label for="Username">Username <small class="text-danger">*</small></label>
 						<input type="text" class="form-control" name="username" id="Username"
-							placeholder="Masukkan Username" readonly>
+							placeholder="Masukkan Username">
 					</div>
 
 					<!-- Nama -->
@@ -238,7 +238,7 @@ $res = getDataPetugas();
 						</div>
 					</div>
 					<!-- Tombol Submit -->
-					<button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Simpan Perubahan</button>
+					<button type="submit" name="btnEditPetugas" class="btn btn-primary mr-2">Simpan Perubahan</button>
 				</div>
 			</form>
 
@@ -260,11 +260,11 @@ $res = getDataPetugas();
             </div>
             <!-- Modal Footer -->
             <div class="modal-footer">
-                <form action="reset_password.php" method="POST">
+                <form action="" method="POST">
                     <input type="hidden" name="id_user" id="idUser">
                     <input type="hidden" name="username" id="Username">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" name="uploadbtn" class="btn btn-danger">Setuju</button>
+                    <button type="submit" name="btnResetPass" class="btn btn-danger">Setuju</button>
                 </form>
             </div>
         </div>
@@ -337,5 +337,9 @@ $res = getDataPetugas();
 		const preview = document.getElementById('previewImage2');
 	});
 </script>
+
+<?php include "./crud/edit_petugas.php" ?>
+<?php include "./crud/input_petugas.php" ?>
+<?php include "./crud/reset_password.php" ?>
 
 </html>

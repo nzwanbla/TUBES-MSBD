@@ -363,7 +363,7 @@ function inputEksemplar($data)
 
 function getDataPetugas()
 {
-    $query = "SELECT * FROM users WHERE role = 'Petugas' ";
+    $query = "SELECT * FROM users WHERE role = 'Petugas' ORDER BY nama ";
 
     $data = query($query);
 
@@ -384,18 +384,19 @@ function inputPetugas($data)
     $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
 
     // Siapkan query untuk memanggil stored procedure dengan parameter
-    $query = "CALL tambah_user_dan_log(?, ?, ?, ?, NULL, NULL, NULL, NULL, ?)";
+    $query = "CALL tambah_user_dan_log(?, ?, ?, ?, NULL, NULL, NULL, NULL, ?, ?)";
 
     // Siapkan prepared statement
     if ($stmt = $conn->prepare($query)) {
         
         // Mengikat parameter dengan tipe data yang sesuai
         $stmt->bind_param(
-            "ssssi", // s for string
+            "sssssi", // s for string
             $username,  // p_username
             $password,  // p_password (hashed password)
             $nama,      // p_nama
             $role,      // p_role
+            $foto_profil,
             $id_user_penginput  // p_id_user_penginput
         );
 
@@ -411,6 +412,130 @@ function inputPetugas($data)
         }
     } else {
         // Jika query preparation gagal, kembalikan error
+        return 0;
+    }
+}
+
+function getDataSiswa($angkatan)
+{
+    $query = "SELECT * FROM view_pengunjung WHERE BINARY kelas LIKE '$angkatan-%' ORDER BY nama_pengunjung";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function inputSiswa($data)
+{
+    // Extracting input data
+    $username = $data['username'];
+    $nama = $data['nama'];
+    $role = $data['role'];
+    $password = $data['password']; // This should be hashed before passing to the procedure
+    $no_induk = $data['username'];
+    $tahun_masuk = $data['tahun_masuk'];
+    $kelas = $data['kelas'];
+    $id_user_penginput = $data['id_user_penginput'];
+    $foto_profil = $data['foto_profil']; // Path foto profil
+
+    // Default value for alamat
+    $alamat = NULL;
+
+    // Koneksi ke database
+    $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
+
+    // Siapkan query untuk memanggil stored procedure dengan parameter
+    $query = "CALL tambah_user_dan_log(?, ?, ?, ?, ?, ?, ?, NULL, ?, ?)";
+
+    // Siapkan prepared statement
+    if ($stmt = $conn->prepare($query)) {
+
+        // Mengikat parameter dengan tipe data yang sesuai
+        $stmt->bind_param(
+            "sssssissi", // s for string, i for integer
+            $username,  // p_username
+            $password,  // p_password (hashed password)
+            $nama,      // p_nama
+            $role,      // p_role
+            $no_induk,  // p_no_induk
+            $tahun_masuk, // p_tahun_masuk
+            $kelas,     // p_kelas
+            $foto_profil, // p_foto_profil
+            $id_user_penginput  // p_id_user_penginput
+        );
+
+        // Eksekusi query
+        if ($stmt->execute()) {
+            // Jika berhasil, kembalikan 1
+            $stmt->close();
+            return 1;
+        } else {
+            // Jika query gagal, kembalikan 0
+            $stmt->close();
+            return 0;
+        }
+    } else {
+        // Jika query preparation gagal, kembalikan 0
+        return 0;
+    }
+}
+
+function getDataGuru()
+{
+    $query = "SELECT * FROM view_pengunjung WHERE kelas_asli IS NULL AND tahun_masuk IS NULL ORDER BY nama_pengunjung";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function inputGuru($data)
+{
+    // Extracting input data
+    $username = $data['username'];
+    $nama = $data['nama'];
+    $role = $data['role'];
+    $password = $data['password']; // This should be hashed before passing to the procedure
+    $no_induk = $data['username'];
+    $id_user_penginput = $data['id_user_penginput'];
+    $foto_profil = $data['foto_profil']; // Path foto profil
+
+    // Default value for alamat
+    $alamat = NULL;
+
+    // Koneksi ke database
+    $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
+
+    // Siapkan query untuk memanggil stored procedure dengan parameter
+    $query = "CALL tambah_user_dan_log(?, ?, ?, ?, ?, NULL, NULL, NULL, ?, ?)";
+
+    // Siapkan prepared statement
+    if ($stmt = $conn->prepare($query)) {
+
+        // Mengikat parameter dengan tipe data yang sesuai
+        $stmt->bind_param(
+            "ssssssi", // s for string, i for integer
+            $username,  // p_username
+            $password,  // p_password (hashed password)
+            $nama,      // p_nama
+            $role,      // p_role
+            $no_induk,  // p_no_induk
+            $foto_profil, // p_foto_profil
+            $id_user_penginput  // p_id_user_penginput
+        );
+
+        // Eksekusi query
+        if ($stmt->execute()) {
+            // Jika berhasil, kembalikan 1
+            $stmt->close();
+            return 1;
+        } else {
+            // Jika query gagal, kembalikan 0
+            $stmt->close();
+            return 0;
+        }
+    } else {
+        // Jika query preparation gagal, kembalikan 0
         return 0;
     }
 }

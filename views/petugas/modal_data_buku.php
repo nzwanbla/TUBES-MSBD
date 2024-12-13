@@ -10,7 +10,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="input_buku.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="./proses/input_buku.php" enctype="multipart/form-data">
                 <div class="modal-body">
                     <!-- Judul Buku -->
                     <div class="form-group">
@@ -164,7 +164,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="input_eksemplar.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="./proses/input_eksemplar.php" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <input type="hidden" name="id_buku" id="idBuku">
@@ -209,7 +209,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="edit_buku.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="./proses/edit_buku.php" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <input type="hidden" name="id_buku" id="idBuku">
@@ -352,7 +352,7 @@
             </div>
 
             <!-- Modal body -->
-            <form class="forms-sample" method="POST" action="edit_eksemplar.php" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="./proses/edit_eksemplar.php" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <input type="hidden" name="id_eksemplar" id="idEksemplar">
@@ -435,7 +435,7 @@
             </div>
             <!-- Modal Footer -->
             <div class="modal-footer">
-                <form action="hapus_eksemplar.php" method="POST">
+                <form action="./proses/hapus_eksemplar.php" method="POST">
                     <input type="hidden" name="id_eksemplar_buku" id="idEksemplarBuku">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-danger">Hapus</button>
