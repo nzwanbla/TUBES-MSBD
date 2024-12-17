@@ -83,7 +83,7 @@ $res = getDataBooksLim(6);
                     </div>
                     <div class="row">
                         <div class="col-md-6 grid-margin stretch-card">
-                            <div class="card tale-bg">
+                            <div class="card tale-bg" style="height: 100px;">
                                 <div class="card-people mt-auto">
                                     <img src="../../assets/images/dashboard/people2.jpeg" alt="people">
                                 </div>
@@ -113,7 +113,7 @@ $res = getDataBooksLim(6);
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent" style="margin-left: auto; margin-right: auto;">
                                     <div class="card card-light-blue">
                                         <div class="card-body">
                                             <p class="mb-4">Notifikasi Pengingat</p>
@@ -125,97 +125,6 @@ $res = getDataBooksLim(6);
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-12 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-title mb-2 text-center">Review Buku</p>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-borderless">
-                                            <thead>
-                                                </tbody>
-                                        </table>
-
-                                        <div class="container1">
-                                            <!--kartu buku pertama-->
-                                            <div class="card">
-                                                <img src="https://via.placeholder.com/100x150"
-                                                    alt="Cover buku Chances Are">
-                                                <div class="card-details">
-                                                    <div class="card-title">Chances Are</div>
-                                                    <div class="card-author">oleh Richard Russo</div>
-                                                    <div class="card-rating">
-                                                        <span class="stars">★★★★★</span>
-                                                        <span class="votes">1,237 ulasan</span>
-                                                    </div>
-                                                    <div class="card-description">
-                                                        Bestseller sepanjang masa dengan cerita yang penuh keindahan dan
-                                                        mendalam.
-                                                    </div>
-                                                    <div class="profile-likes">
-                                                        <img src="images/faces/face1.jpg" class="profile-pic"
-                                                            alt="Profil 1">
-                                                        <img src="images/faces/face2.jpg" class="profile-pic"
-                                                            alt="Profil 2">
-                                                        <img src="images/faces/face3.jpg" class="profile-pic"
-                                                            alt="Profil 3">
-                                                        <span class="like-text">Dina dan 2 lainnya menyukai ini</span>
-                                                    </div>
-                                                </div>
-                                                <div class="menu" onclick="toggleMenu()">⋮</div>
-                                                <div class="menu-options" id="menu-options">
-                                                    <div onclick="openPopup()">Ulasan</div>
-                                                    <div onclick="goToDetail()">Detail</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="container1">
-                                                <!--kartu buku kedua-->
-                                                <div class="card">
-                                                    <img src="https://via.placeholder.com/100x150"
-                                                        alt="Cover buku Chances Are">
-                                                    <div class="card-details">
-                                                        <div class="card-title">Chances Are</div>
-                                                        <div class="card-author">oleh Richard Russo</div>
-                                                        <div class="card-rating">
-                                                            <span class="stars">★★★★★</span>
-                                                            <span class="votes">1,237 ulasan</span>
-                                                        </div>
-                                                        <div class="card-description">
-                                                            Bestseller sepanjang masa dengan cerita yang penuh keindahan
-                                                            dan mendalam.
-                                                        </div>
-                                                        <div class="profile-likes">
-                                                            <img src="images/faces/face4.jpg" class="profile-pic"
-                                                                alt="Profil 1">
-                                                            <img src="images/faces/face2.jpg" class="profile-pic"
-                                                                alt="Profil 2">
-                                                            <img src="images/faces/face3.jpg" class="profile-pic"
-                                                                alt="Profil 3">
-                                                            <span class="like-text">Dina dan 2 lainnya menyukai
-                                                                ini</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="menu" onclick="toggleMenu()">⋮</div>
-                                                    <div class="menu-options" id="menu-options">
-                                                        <div onclick="openPopup()">Ulasan</div>
-                                                        <div onclick="goToDetail()">Detail</div>
-                                                    </div>
-                                                </div>
-
-
-                                                <!-- Overlay dan Popup untuk Ulasan -->
-                                                <div class="overlay" onclick="closePopup()"></div>
-                                                <div class="popup" id="popup">
-                                                    <p>Bagikan ulasan Anda tentang buku ini. Apa yang Anda suka atau
-                                                        tidak suka?</p>
-                                                    <button onclick="closePopup()">Tutup</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- katalog buku -->
                                 <div class="container">
@@ -266,6 +175,28 @@ $res = getDataBooksLim(6);
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
+
+                                <section id="testimonials">
+                                <h4 class="sec-head">Quote</h4>
+                                <div class="cust-quotes">
+                                <blockquote data-timeout="5000">
+                                    <p>Membaca adalah jendela dunia.</p>
+                                    <cite>Soetomo</cite>
+                                </blockquote>
+                                <blockquote data-timeout="5000">
+                                    <p>Buku adalah sumber pengetahuan yang tak ternilai.</p>
+                                    <cite>Abdurrahman Wahid</cite>
+                                </blockquote>
+                                <blockquote data-timeout="5000">
+                                    <p>Kunci kesuksesan adalah fokus pada tujuan, bukan hambatan.</p>
+                                    <cite>Albert Schweitzer</cite>
+                                </blockquote>
+                                <blockquote data-timeout="5000">
+                                    <p>Keberhasilan adalah jumlah dari usaha kecil yang diulang setiap hari.</p>
+                                    <cite>Robert Collier</cite>
+                                </blockquote>
+                                </div>
+                                </section>
 
                                 <!-- include footer -->
                                 <?php
