@@ -484,4 +484,159 @@ function inputGuru($data)
     }
 }
 
+function getDataPeminjaman($jenis)
+{
+    $query = "SELECT * FROM view_peminjaman_buku WHERE jenis_buku = '$jenis' ";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function inputPeminjaman($data)
+{
+    // Extracting input data
+
+    $id_user = $data['id_user']; // This should be hashed before passing to the procedure
+    $id_eksemplar_buku = $data['id_eksemplar_buku'];
+    $id_petugas = $data['id_petugas'];
+
+    // Koneksi ke database
+    $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
+
+    // Siapkan query untuk memanggil stored procedure dengan parameter
+    $query = "CALL peminjaman_buku(?, ?, ?)";
+
+    // Siapkan prepared statement
+    if ($stmt = $conn->prepare($query)) {
+
+        // Mengikat parameter dengan tipe data yang sesuai
+        $stmt->bind_param(
+            "iii", // s for string, i for integer  
+            $id_eksemplar_buku,  
+            $id_user,
+            $id_petugas  
+        );
+
+        // Eksekusi query
+        if ($stmt->execute()) {
+            // Jika berhasil, kembalikan 1
+            $stmt->close();
+            return 1;
+        } else {
+            // Jika query gagal, kembalikan 0
+            $stmt->close();
+            return 0;
+        }
+    } else {
+        // Jika query preparation gagal, kembalikan 0
+        return 0;
+    }
+}
+
+function inputPengembalian($data)
+{
+    // Extracting input data
+
+    $id_peminjaman = $data['id_peminjaman'];
+    $id_petugas = $data['id_petugas'];
+
+    // Koneksi ke database
+    $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
+
+    // Siapkan query untuk memanggil stored procedure dengan parameter
+    $query = "CALL pengembalian_buku(?, ?)";
+
+    // Siapkan prepared statement
+    if ($stmt = $conn->prepare($query)) {
+
+        // Mengikat parameter dengan tipe data yang sesuai
+        $stmt->bind_param(
+            "ii", // s for string, i for integer  
+            $id_peminjaman,  
+            $id_petugas  
+        );
+
+        // Eksekusi query
+        if ($stmt->execute()) {
+            // Jika berhasil, kembalikan 1
+            $stmt->close();
+            return 1;
+        } else {
+            // Jika query gagal, kembalikan 0
+            $stmt->close();
+            return 0;
+        }
+    } else {
+        // Jika query preparation gagal, kembalikan 0
+        return 0;
+    }
+}
+
+function inputDenda($data)
+{
+    // Extracting input data
+
+    $id_peminjaman = $data['id_peminjaman_buku'];
+    $id_user = $data['id_user'];
+    $keterangan = $data['keterangan'];
+    $hari_telat = $data['hari_telat'];
+    $denda_harian = $data['denda_per_hari'];
+    $denda = $data['denda'];
+    $id_petugas = $data['id_petugas'];
+
+    // Koneksi ke database
+    $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
+
+    // Siapkan query untuk memanggil stored procedure dengan parameter
+    $query = "CALL denda_buku(?, ?, ?, ?, ?, ?)";
+
+    // Siapkan prepared statement
+    if ($stmt = $conn->prepare($query)) {
+
+        // Mengikat parameter dengan tipe data yang sesuai
+        $stmt->bind_param(
+            "iisiii", // s for string, i for integer  
+            $id_peminjaman,
+            $id_user,
+            $keterangan,
+            $hari_telat,
+            $denda_harian,
+            $denda  
+        );
+
+        // Eksekusi query
+        if ($stmt->execute()) {
+            // Jika berhasil, kembalikan 1
+            $stmt->close();
+            return 1;
+        } else {
+            // Jika query gagal, kembalikan 0
+            $stmt->close();
+            return 0;
+        }
+    } else {
+        // Jika query preparation gagal, kembalikan 0
+        return 0;
+    }
+}
+
+function getDataDenda()
+{
+    $query = "SELECT * FROM view_denda_buku";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function getDataRequest()
+{
+    $query = "SELECT * FROM view_request_perpanjangan_buku";
+
+    $data = query($query);
+
+    return ($data);
+}
+
 ?>

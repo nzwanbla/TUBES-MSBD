@@ -134,48 +134,7 @@ $res = getDataBooksLim(6);
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title">Detail Peminjaman Buku</p>
-                  <p class="font-weight-500">Laporan Detail Peminjaman Buku dari Anggota Perpustakaan</p>
-                  <div class="d-flex flex-wrap mb-5">
-                    <div class="mr-5 mt-3">
-                      <p class="text-muted">Total Buku</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">12.3k</h3>
-                    </div>
-                    <div class="mr-5 mt-3">
-                      <p class="text-muted">Buku yang Sedang Dipinjam</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">14k</h3>
-                    </div>
-                    <div class="mr-5 mt-3">
-                      <p class="text-muted">Persentase Buku Terpinjam</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">71.56%</h3>
-                    </div>
-                    <div class="mt-3">
-                      <p class="text-muted">Total Anggota Terdaftar</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div>
-                  </div>
-                  <canvas id="order-chart"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <p class="card-title">Laporan Aktivitas Peminjaman</p>
-                    <a href="#" class="text-info">View all</a>
-                  </div>
-                  <p class="font-weight-500">Laporan Aktivitas Peminjaman dari Anggota Perpustakaan</p>
-                  <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
-                  <canvas id="sales-chart"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           <!-- katalog buku -->
           <div class="container">

@@ -7,7 +7,8 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#userMenu" role="button" aria-expanded="false" aria-controls="userMenu">
+      <a class="nav-link" data-bs-toggle="collapse" href="#userMenu" role="button" aria-expanded="false"
+        aria-controls="userMenu">
         <i class="mdi mdi-account-multiple menu-icon"></i>
         <span class="menu-title">Manajemen User</span>
         <i class="menu-arrow"></i>
@@ -36,7 +37,8 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#bookMenu" role="button" aria-expanded="false" aria-controls="bookMenu">
+      <a class="nav-link" data-bs-toggle="collapse" href="#bookMenu" role="button" aria-expanded="false"
+        aria-controls="bookMenu">
         <i class="mdi mdi-book-open-page-variant menu-icon"></i>
         <span class="menu-title">Manajemen Buku</span>
         <i class="menu-arrow"></i>
@@ -59,11 +61,36 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="./data_peminjaman.php">
+      <a class="nav-link" data-bs-toggle="collapse" href="#peminjamanMenu" role="button" aria-expanded="false"
+        aria-controls="peminjamanMenu">
         <i class="mdi mdi-account-card-details menu-icon"></i>
-        <span class="menu-title">Data Peminjaman</span>
+        <span class="menu-title">Manajemen Pinjaman</span>
+        <i class="menu-arrow"></i>
       </a>
+      <div class="collapse" id="peminjamanMenu">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="./data_peminjaman.php">
+              <i class="mdi mdi-account-card-details menu-icon"></i>
+              <span class="menu-title">Peminjaman</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./data_request_perpanjangan.php">
+              <i class="mdi mdi-bookmark-plus-outline menu-icon"></i>
+              <span class="menu-title">Perpanjangan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./data_denda.php">
+              <i class="mdi mdi-wallet-outline menu-icon"></i>
+              <span class="menu-title">Denda</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </li>
+
     <li class="nav-item">
       <a class="nav-link" href="../logout.php">
         <i class="mdi mdi-logout menu-icon"></i>

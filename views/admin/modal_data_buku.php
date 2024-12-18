@@ -437,7 +437,6 @@
             <div class="modal-footer">
                 <form action="" method="POST">
                     <input type="hidden" name="id_eksemplar_buku" id="idEksemplarBuku">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" name="btnHapusEks" class="btn btn-danger">Hapus</button>
                 </form>
             </div>
