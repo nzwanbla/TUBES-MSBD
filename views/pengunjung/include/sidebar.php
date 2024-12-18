@@ -13,8 +13,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./riwayat_peminjaman.php">
-              <i class="mdi mdi-cart-arrow-down menu-icon"></i>
+            <a class="nav-link" href="./data_peminjaman.php">
+              <i class="mdi mdi-account-card-details menu-icon"></i>
               <span class="menu-title">Riwayat Peminjaman</span>
             </a>
         </li>

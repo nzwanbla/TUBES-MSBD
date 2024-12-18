@@ -48,41 +48,46 @@ function updateUserDanPengunjung($data)
     // Koneksi ke database
     $conn = conn(); // Fungsi untuk mendapatkan koneksi ke database
 
-    // Siapkan query untuk memanggil stored procedure dengan parameter
-    $query = "CALL update_user_dan_pengunjung(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    // Siapkan query untuk kedua tabel
+    $query1 = "UPDATE users SET foto_profil = ? WHERE id_user = ?";
+    $query2 = "UPDATE pengunjung SET alamat = ? WHERE id_user = ?";
 
-    // Siapkan prepared statement
-    if ($stmt = $conn->prepare($query)) {
+    // Mulai transaksi untuk memastikan kedua operasi dilakukan bersama
+    $conn->begin_transaction();
 
-        // Mengikat parameter dengan tipe data yang sesuai
-        $stmt->bind_param(
-            "issssssssi", 
-            $id_user,  // integer
-            $username,  // string
-            $nama,      // string
-            $role,      // string
-            $no_induk,  // string
-            $tahun_masuk,  // integer (YEAR)
-            $kelas,     // string
-            $alamat,    // string
-            $fileLoc,   // string
-            $id_user_pengedit  // integer
-        );
-
-        // Eksekusi query
-        if ($stmt->execute()) {
-            // Jika berhasil, kembalikan 1
-            $stmt->close();
-            return 1;
-        } else {
-            // Jika query gagal, kembalikan 0
-            $stmt->close();
-            return 0;
+    try {
+        // Siapkan prepared statement untuk query pertama
+        $stmt1 = $conn->prepare($query1);
+        if (!$stmt1) {
+            throw new Exception("Gagal menyiapkan statement untuk query1: " . $conn->error);
         }
-    } else {
-        // Jika gagal mempersiapkan statement
-        return 0;
+        $stmt1->bind_param("si", $fileLoc, $id_user);
+        if (!$stmt1->execute()) {
+            throw new Exception("Gagal menjalankan query1: " . $stmt1->error);
+        }
+        $stmt1->close();
+
+        // Siapkan prepared statement untuk query kedua
+        $stmt2 = $conn->prepare($query2);
+        if (!$stmt2) {
+            throw new Exception("Gagal menyiapkan statement untuk query2: " . $conn->error);
+        }
+        $stmt2->bind_param("si", $alamat, $id_user);
+        if (!$stmt2->execute()) {
+            throw new Exception("Gagal menjalankan query2: " . $stmt2->error);
+        }
+        $stmt2->close();
+
+        // Commit transaksi jika kedua query berhasil
+        $conn->commit();
+        return 1; // Berhasil
+    } catch (Exception $e) {
+        // Rollback transaksi jika salah satu query gagal
+        $conn->rollback();
+        error_log($e->getMessage());
+        return 0; // Gagal
     }
+
 }
 
 function updatePassword($username, $new_password)
@@ -91,7 +96,7 @@ function updatePassword($username, $new_password)
     // Gunakan query untuk mengupdate password di database
     $query = "UPDATE users SET password = ? WHERE username = ?";
     $stmt = $conn->prepare($query);
-    
+
     if ($stmt) {
         $stmt->bind_param("ss", $new_password, $username);
         return $stmt->execute(); // Eksekusi query untuk mengupdate password
@@ -189,6 +194,39 @@ function getDataEksemplar()
 function getDataReview()
 {
     $query = "SELECT * FROM view_ulasan_buku ORDER BY waktu_ulasan DESC";
+
+    $data = query($query);
+
+    return ($data);
+}
+
+function getDataPeminjaman($id, $jenis_buku)
+{
+    $query = "SELECT 
+                vpb.id_peminjaman_buku,
+                vpb.id_eksemplar_buku,
+                vpb.id_user,
+                vpb.no_induk,
+                vpb.nama_user,
+                vpb.judul_buku,
+                vpb.jenis_buku,
+                vpb.kelas,
+                vpb.nama_petugas,
+                vpb.waktu_peminjaman,
+                vpb.waktu_pengembalian,
+                vpb.perpanjangan,
+                db.besaran_denda AS denda,
+                db.keterangan,
+                rpb.status
+            FROM 
+                view_peminjaman_buku vpb
+            LEFT JOIN 
+                denda_buku db ON vpb.id_peminjaman_buku = db.id_peminjaman_buku
+            LEFT JOIN 
+                request_perpanjangan_buku rpb ON vpb.id_peminjaman_buku = rpb.id_peminjaman_buku
+            WHERE 
+                vpb.id_user = $id
+                AND vpb.jenis_buku = '$jenis_buku' ";
 
     $data = query($query);
 

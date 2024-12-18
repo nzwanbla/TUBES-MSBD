@@ -50,38 +50,38 @@ $data = getDataUsers($_SESSION['username']);
                             <div class="card">
                                 <div class="card-body">
                                     <h3 class="card-title">PROFILE</h3>
-                                    <form class="forms-sample" method="POST" action="change_profile.php"
-                                        enctype="multipart/form-data">
+                                    <form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="exampleInputName1">Nama Lengkap</label>
                                             <input type="text" class="form-control" id="exampleInputName1"
-                                                placeholder="Nama Lengkap" value="<?=$data['nama_pengunjung']?>"
+                                                placeholder="Nama Lengkap" value="<?= $data['nama_pengunjung'] ?>"
                                                 disabled>
                                         </div>
                                         <div class="form-group">
                                             <label for="No_induk">No Induk</label>
-                                            <input type="text" class="form-control" id="No_induk"  placeholder="No Induk" value="<?=$data['no_induk']?>" disabled>
+                                            <input type="text" class="form-control" id="No_induk" placeholder="No Induk"
+                                                value="<?= $data['no_induk'] ?>" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label for="kelas">Kelas</label>
                                             <input type="text" class="form-control" id="kelas" placeholder="Kelas"
-                                                value="<?=$data['kelas']?>" disabled>
+                                                value="<?= $data['kelas'] ?>" disabled>
                                         </div>
 
                                         <!-- Hidden fields for other data that will not be displayed but submitted -->
-                                        <input type="text" name="nama" value="<?= $data['nama_pengunjung']?>" hidden>
-                                        <input type="text" name="no_induk" value="<?= $data['no_induk']?>" hidden>
-                                        <input type="text" name="id_user" value="<?= $data['id_user']?>" hidden>
-                                        <input type="text" name="username" value="<?= $data['username']?>" hidden>
-                                        <input type="text" name="role" value="<?=$_SESSION['status']?>" hidden>
-                                        <input type="text" name="tahun_masuk" value="<?= $data['tahun_masuk']?>" hidden>
+                                        <input type="text" name="nama" value="<?= $data['nama_pengunjung'] ?>" hidden>
+                                        <input type="text" name="no_induk" value="<?= $data['no_induk'] ?>" hidden>
+                                        <input type="text" name="id_user" value="<?= $data['id_user'] ?>" hidden>
+                                        <input type="text" name="username" value="<?= $data['username'] ?>" hidden>
+                                        <input type="text" name="role" value="<?= $_SESSION['status'] ?>" hidden>
+                                        <input type="text" name="tahun_masuk" value="<?= $data['tahun_masuk'] ?>" hidden>
                                         <input type="text" name="kelas" value="<?= $data['kelas_asli'] ?>" hidden>
 
                                         <div class="form-group">
                                             <label>Upload Foto Profil</label>
                                             <div class="custom-file">
-                                                <input type="file" name="berkas" class="custom-file-input" id="uploadImage"
-                                                    accept="image/*">
+                                                <input type="file" name="berkas" class="custom-file-input"
+                                                    id="uploadImage" accept="image/*">
                                                 <label class="custom-file-label" for="uploadImage">Pilih file...</label>
                                             </div>
                                             <div class="mt-3">
@@ -96,8 +96,8 @@ $data = getDataUsers($_SESSION['username']);
                                                 name="alamat"><?= $data['alamat'] ?></textarea>
                                         </div>
 
-                                        <button type="submit" name="uploadbtn"
-                                            class="btn btn-primary mr-2">Save Changes</button>
+                                        <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Save
+                                            Changes</button>
                                         <a href="index.php" class="btn btn-light"
                                             onclick="return confirm('Apakah anda yakin ingin meninggalkan perubahan?')">Close</a>
                                     </form>
@@ -118,6 +118,7 @@ $data = getDataUsers($_SESSION['username']);
 
     </div>
 
+
     <?php include "./include/js.php"; ?>
 
     <script>
@@ -132,7 +133,7 @@ $data = getDataUsers($_SESSION['username']);
         });
     </script>
 
-
+    <?php include "./crud/change_profile.php"; ?>
 </body>
 
 </html>
