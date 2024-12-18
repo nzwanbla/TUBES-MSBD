@@ -225,6 +225,28 @@ $res = getDataBooksLim(6);
             </div>
           </div>
 
+                                <section id="testimonials">
+                                <h4 class="sec-head">Kutipan Motivasi</h4>
+                                <div class="cust-quotes">
+                                <blockquote data-timeout="5000">
+                                    <p>Membaca adalah jendela dunia.</p>
+                                    <cite>Soetomo</cite>
+                                </blockquote>
+                                <blockquote data-timeout="5000">
+                                    <p>Buku adalah sumber pengetahuan yang tak ternilai.</p>
+                                    <cite>Abdurrahman Wahid</cite>
+                                </blockquote>
+                                <blockquote data-timeout="5000">
+                                    <p>Kunci kesuksesan adalah fokus pada tujuan, bukan hambatan.</p>
+                                    <cite>Albert Schweitzer</cite>
+                                </blockquote>
+                                <blockquote data-timeout="5000">
+                                    <p>Sebuah ruangan tanpa buku bagaikan tubuh tanpa jiwa.</p>
+                                    <cite>Marcus Tullius Cicero</cite>
+                                </blockquote>
+                                </div>
+                                </section>
+
           <!-- include:footer.php -->
           <?php
           include "../../include/footer.php";
