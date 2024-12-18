@@ -1,102 +1,81 @@
 body {
-    font: 14px/20px 'Arial', sans-serif;
+    font: 14px/20px Arial, sans-serif;
     color: #222;
-    background-color: #f4f4f9;
 }
 
 #testimonials {
     margin: 0 auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    padding: 50px 20px;
-    max-width: 900px;
-    text-align: center;
-    background-color: transparent;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transition: opacity 1s ease-in; 
-}
-
-#testimonials.visible {
-    opacity: 1; 
+    margin-top: 150px;
+    margin-bottom: 150px;
+    width: 940px;
+    text-align: center; /* Memastikan semua konten di dalam #testimonials berada di tengah */
 }
 
 .sec-head {
-    font-size: 36px;
+    font-size: 32px; 
     font-weight: bold;
-    color: #333;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
 .cust-quotes {
-    width: 100%;
-    max-width: 640px;
-    margin: 0 auto;
+    width: 640px;
+    height: 100px;
     position: relative;
+    margin: 0 auto; /* Agar blockquote berada di tengah */
 }
 
 .cust-quotes blockquote {
-    position: relative;
-    font-size: 24px;
-    font-style: italic;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 22px; /* Memperbesar teks blockquote */
     text-align: center;
-    color: #555;
-    padding: 20px;
-    margin: 20px 0;
-    background: #fafafa;
-    border-left: 5px solid #4B49AC;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    display: none;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.5s ease-out 0s, transform 0.5s ease-in 0s;
 }
 
 .cust-quotes blockquote:first-child {
-    display: block; 
+    opacity: 0;
+    transform: translateY(-10px) scale(1.1);
 }
 
-.cust-quotes blockquote:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+.cust-quotes blockquote:first-child + blockquote {
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 1.6s ease 0s;
 }
 
 .cust-quotes blockquote p {
-    position: relative;
-    font-size: 24px;
-    line-height: 1.6;
-    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: normal;
     font-style: italic;
-    color: #333;
-}
-
-.cust-quotes blockquote cite {
-    display: block;
-    font-size: 18px;
-    color: #888;
-    margin-top: 10px;
-    font-style: normal;
-}
-
-.cust-quotes blockquote p:before,
-.cust-quotes blockquote p:after {
-    font-family: Georgia, serif;
-    font-size: 40px;
-    color: #4B49AC;
+    color: #353535;
+    line-height: 30px;
+    margin-bottom: 10px;
 }
 
 .cust-quotes blockquote p:before {
-    content: "“";
-    position: absolute;
-    top: -10px;
-    left: 5px;
+    content: '\201C';
 }
 
 .cust-quotes blockquote p:after {
-    content: "”";
-    position: absolute;
-    bottom: -10px;
-    right: 5px;
+    content: '\201D';
+}
+
+.cust-quotes blockquote cite {
+    text-align: center;
+    font-size: 18px; /* Memperbesar nama penulis */
+    color: #898989;
+}
+
+.cust-quotes blockquote cite a {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.container {
+    max-width: 940px;
+    margin: 0 auto;
 }

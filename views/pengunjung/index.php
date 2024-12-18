@@ -62,19 +62,10 @@ $res = getDataBooksLim(6);
                                 </div>
                                 <div class="col-12 col-xl-4">
                                     <div class="justify-content-end d-flex">
-                                        <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                                            <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button"
-                                                id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-calendar"></i> Today (5 Nov 2024)
+                                        <div>
+                                            <button class="btn btn-sm btn-light bg-white" type="button"  aria-haspopup="true" aria-expanded="true">
+                                                <i class="mdi mdi-calendar"></i> Today (<?php echo date('j M Y'); ?>)
                                             </button>
-                                            <div class="dropdown-menu dropdown-menu-right"
-                                                aria-labelledby="dropdownMenuDate2">
-                                                <a class="dropdown-item" href="#">January - March</a>
-                                                <a class="dropdown-item" href="#">March - June</a>
-                                                <a class="dropdown-item" href="#">June - August</a>
-                                                <a class="dropdown-item" href="#">August - November</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +104,7 @@ $res = getDataBooksLim(6);
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent" style="margin-left: auto; margin-right: auto;">
+                                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                                     <div class="card card-light-blue">
                                         <div class="card-body">
                                             <p class="mb-4">Notifikasi Pengingat</p>
@@ -177,7 +168,7 @@ $res = getDataBooksLim(6);
                                 </div>
 
                                 <section id="testimonials">
-                                <h4 class="sec-head">Quote</h4>
+                                <h4 class="sec-head">Kutipan Motivasi</h4>
                                 <div class="cust-quotes">
                                 <blockquote data-timeout="5000">
                                     <p>Membaca adalah jendela dunia.</p>
@@ -192,8 +183,8 @@ $res = getDataBooksLim(6);
                                     <cite>Albert Schweitzer</cite>
                                 </blockquote>
                                 <blockquote data-timeout="5000">
-                                    <p>Keberhasilan adalah jumlah dari usaha kecil yang diulang setiap hari.</p>
-                                    <cite>Robert Collier</cite>
+                                    <p>Sebuah ruangan tanpa buku bagaikan tubuh tanpa jiwa.</p>
+                                    <cite>Marcus Tullius Cicero</cite>
                                 </blockquote>
                                 </div>
                                 </section>
