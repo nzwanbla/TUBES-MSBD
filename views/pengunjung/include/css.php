@@ -23,4 +23,5 @@
     <link rel="stylesheet" href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/quotes.css">
+    <link rel="stylesheet" href="../../assets/css/tabs_admin.css">
     <link rel="stylesheet" href="../../assets/dist/sweetalert2.min.css">

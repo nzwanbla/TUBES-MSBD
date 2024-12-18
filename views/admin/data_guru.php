@@ -63,7 +63,7 @@ $res = getDataGuru();
 											<th>Profile</th>
 											<th>Username/NISN</th>
 											<th>Nama</th>
-                      <th>Alamat</th>
+											<th>Alamat</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
@@ -89,8 +89,7 @@ $res = getDataGuru();
 														data-username="<?= $data['username'] ?>"
 														data-nama="<?= $data['nama_pengunjung'] ?>"
 														data-foto_profil="<?= $data['foto_profil'] ?>"
-														data-role="<?= $data['role'] ?>"
-														data-kelas="<?= $data['kelas'] ?>"
+														data-role="<?= $data['role'] ?>" data-kelas="<?= $data['kelas'] ?>"
 														data-tahun_masuk="<?= $data['tahun_masuk'] ?>">
 														<i class="bi bi-pencil"></i>
 													</button>
@@ -251,28 +250,28 @@ $res = getDataGuru();
 </div>
 
 <div class="modal fade" id="tombolReset">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Reset Password</h4>
-                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-            </div>
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <h4>Apakah Anda yakin ingin melakukan reset Password ?</h4>
-            </div>
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-                <form action="" method="POST">
-                    <input type="hidden" name="id_user" id="idUser">
-                    <input type="hidden" name="username" id="Username">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" name="btnResetPass" class="btn btn-danger">Setuju</button>
-                </form>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Reset Password</h4>
+				<button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<h4>Apakah Anda yakin ingin melakukan reset Password ?</h4>
+			</div>
+			<!-- Modal Footer -->
+			<div class="modal-footer">
+				<form action="" method="POST">
+					<input type="hidden" name="id_user" id="idUser">
+					<input type="hidden" name="username" id="Username">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+					<button type="submit" name="btnResetPass" class="btn btn-danger">Setuju</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -300,35 +299,35 @@ $res = getDataGuru();
 </script>
 
 <script>
-    $('#tombolEdit').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // Tombol yang diklik
-        var userId = button.data('id'); // Ambil ID User
-        var username = button.data('username'); // Ambil Username
-        var nama = button.data('nama'); // Ambil Nama
-        var fotoProfil = button.data('foto_profil'); // Ambil Foto Profil
-        var role = button.data('role'); // Ambil Role User
-        var kelas = button.data('kelas'); // Ambil Kelas
-        var tahunMasuk = button.data('tahun_masuk'); // Ambil Tahun Masuk
+	$('#tombolEdit').on('show.bs.modal', function (event) {
+		var button = $(event.relatedTarget); // Tombol yang diklik
+		var userId = button.data('id'); // Ambil ID User
+		var username = button.data('username'); // Ambil Username
+		var nama = button.data('nama'); // Ambil Nama
+		var fotoProfil = button.data('foto_profil'); // Ambil Foto Profil
+		var role = button.data('role'); // Ambil Role User
+		var kelas = button.data('kelas'); // Ambil Kelas
+		var tahunMasuk = button.data('tahun_masuk'); // Ambil Tahun Masuk
 
-        // Masukkan data ke dalam field input di dalam modal
-        var modal = $(this);
-        modal.find('#idUser').val(userId); // Isi field ID User
-        modal.find('#Username').val(username); // Isi field Username
-        modal.find('#Nama').val(nama); // Isi field Nama
-        modal.find('#FotoProfil').val(fotoProfil); // Isi field Foto Profil (jika berupa hidden input)
-        modal.find('#Kelas').val(kelas); // Isi field Kelas (dropdown)
-        modal.find('#TahunMasuk').val(tahunMasuk); // Isi field Tahun Masuk
+		// Masukkan data ke dalam field input di dalam modal
+		var modal = $(this);
+		modal.find('#idUser').val(userId); // Isi field ID User
+		modal.find('#Username').val(username); // Isi field Username
+		modal.find('#Nama').val(nama); // Isi field Nama
+		modal.find('#FotoProfil').val(fotoProfil); // Isi field Foto Profil (jika berupa hidden input)
+		modal.find('#Kelas').val(kelas); // Isi field Kelas (dropdown)
+		modal.find('#TahunMasuk').val(tahunMasuk); // Isi field Tahun Masuk
 
-        // Reset radio buttons role terlebih dahulu
-        $('input[name="role"]').prop('checked', false); // Menghapus status yang terpilih sebelumnya
+		// Reset radio buttons role terlebih dahulu
+		$('input[name="role"]').prop('checked', false); // Menghapus status yang terpilih sebelumnya
 
-        // Menandai radio button yang sesuai dengan role
-        if (role === "Pengunjung") {
-            $('#rolePengunjung').prop('checked', true); // Check radio button Pengunjung
-        } else if (role === "Non Aktif") {
-            $('#roleNonAktif').prop('checked', true); // Check radio button Non Aktif
-        }
-    });
+		// Menandai radio button yang sesuai dengan role
+		if (role === "Pengunjung") {
+			$('#rolePengunjung').prop('checked', true); // Check radio button Pengunjung
+		} else if (role === "Non Aktif") {
+			$('#roleNonAktif').prop('checked', true); // Check radio button Non Aktif
+		}
+	});
 </script>
 
 <script>

@@ -1,5 +1,4 @@
 <?php
-require './include/Pengunjung_Function.php';
 
 $data = getDataUsers($_SESSION['username']);
 
@@ -50,12 +49,16 @@ if (isset($_POST['uploadbtn'])) {
 
         // Jika upload gagal, batalkan seluruh proses
         if (!$uploaded) {
-            echo "
-                <script>
-                    alert('Gagal mengupload file!');
-                    window.history.back();
-                </script>
-            ";
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Gagal mengunggah file!',
+                    confirmButtonText: 'OK'
+                }).then(function() {
+                    window.location = './profile.php';
+                });
+            </script>";
             exit();  // Hentikan eksekusi lebih lanjut
         }
     } else {
@@ -85,21 +88,29 @@ if (isset($_POST['uploadbtn'])) {
             unlink($fileLoc);
         }
 
-        echo "
-            <script>
-                alert('Gagal mengupdate data dan upload file!');
-                window.history.back();
-            </script>
-        ";
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Gagal memperbarui data.',
+                confirmButtonText: 'OK'
+            }).then(function() {
+                window.location = './profile.php';
+            });
+        </script>";
         exit();  // Hentikan eksekusi lebih lanjut
     }
 
     // Jika berhasil, tampilkan pesan sukses
-    echo "
-        <script>
-            alert('File berhasil diupload dan data berhasil diupdate!');
-            window.location = './profile.php';
-        </script>
-    ";
+    echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Data berhasil diperbarui.',
+                confirmButtonText: 'OK'
+            }).then(function() {
+                window.location = './profile.php';
+            });
+        </script>";
 }
 ?>
