@@ -132,7 +132,7 @@ $kelasXII = getDataSiswa("XII");
 								</button>
 							</div>
 							<div class="table-responsive p-3">
-								<table class="table align-items-center table-flush table-hover" id="dataTableHover1">
+								<table class="table align-items-center table-flush table-hover" id="dataTableHover2">
 									<thead class="bg-primary text-white">
 										<tr>
 											<th>No</th>
@@ -206,7 +206,7 @@ $kelasXII = getDataSiswa("XII");
 								</button>
 							</div>
 							<div class="table-responsive p-3">
-								<table class="table align-items-center table-flush table-hover" id="dataTableHover1">
+								<table class="table align-items-center table-flush table-hover" id="dataTableHover3">
 									<thead class="bg-primary text-white">
 										<tr>
 											<th>No</th>
