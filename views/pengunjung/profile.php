@@ -49,7 +49,7 @@ $data = getDataUsers($_SESSION['username']);
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title">PROFILE</h3>
+                                    <h3 class="card-title">Edit Profil</h3>
                                     <form class="forms-sample" method="POST" action="" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="exampleInputName1">Nama Lengkap</label>
@@ -96,10 +96,11 @@ $data = getDataUsers($_SESSION['username']);
                                                 name="alamat"><?= $data['alamat'] ?></textarea>
                                         </div>
 
-                                        <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Save
-                                            Changes</button>
+                                        <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">
+                                            Simpan Perubahan    
+                                        </button>
                                         <a href="index.php" class="btn btn-light"
-                                            onclick="return confirm('Apakah anda yakin ingin meninggalkan perubahan?')">Close</a>
+                                            onclick="return confirm('Apakah anda yakin ingin meninggalkan perubahan?')">Batal</a>
                                     </form>
                                 </div>
                             </div>

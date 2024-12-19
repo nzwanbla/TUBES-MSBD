@@ -483,8 +483,8 @@ $kelasXII = getDataSiswa("XII");
                 <form action="" method="POST">
                     <input type="hidden" name="id_user" id="idUser">
                     <input type="hidden" name="username" id="Username">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" name="btnResetPass" class="btn btn-danger">Setuju</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" name="btnResetPass" class="btn btn-success">Setuju</button>
                 </form>
             </div>
         </div>
