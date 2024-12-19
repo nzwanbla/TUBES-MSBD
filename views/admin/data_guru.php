@@ -61,7 +61,7 @@ $res = getDataGuru();
 										<tr>
 											<th>No</th>
 											<th>Profile</th>
-											<th>Username/NISN</th>
+											<th>Username/NIP</th>
 											<th>Nama</th>
 											<th>Alamat</th>
 											<th>Aksi</th>
@@ -145,9 +145,9 @@ $res = getDataGuru();
 
 					<!-- Username/NISN -->
 					<div class="form-group">
-						<label for="Username">Username/NISN <small class="text-danger">*</small></label>
+						<label for="Username">Username/NIP <small class="text-danger">*</small></label>
 						<input type="text" class="form-control" name="username" id="Username"
-							placeholder="Masukkan Username atau NISN" required>
+							placeholder="Masukkan Username atau NIP" required>
 					</div>
 
 					<!-- Nama -->
