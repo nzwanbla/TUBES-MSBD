@@ -7,6 +7,22 @@ if (empty($_SESSION['username']) or $_SESSION['status'] != 'Admin') {
 }
 
 $res = getDataBooksLim(6);
+
+$query_buku = query("SELECT COUNT(*) AS total_buku FROM eksemplar_buku WHERE status NOT IN ('Hilang', 'Rusak')");
+$total_buku = $query_buku->fetch_assoc()['total_buku'];
+
+// 2. Total Peminjaman
+$query_peminjaman = query("SELECT COUNT(*) AS total_peminjaman FROM peminjaman_buku WHERE YEAR(waktu_peminjaman) = YEAR(current_date) AND MONTH(waktu_peminjaman) = MONTH(current_date)");
+$total_peminjaman = $query_peminjaman->fetch_assoc()['total_peminjaman'];
+
+// 3. Total Denda
+$query_denda = query("SELECT SUM(besaran_denda) AS total_denda FROM view_denda_buku WHERE YEAR(waktu_peminjaman) = YEAR(current_date) AND MONTH(waktu_peminjaman) = MONTH(current_date)");
+$total_denda = $query_denda->fetch_assoc()['total_denda'] ?? 0;
+
+// 4. Anggota Aktif
+$query_anggota = query("SELECT COUNT(*) AS total_anggota FROM users WHERE role != 'Non aktif'");
+$total_anggota = $query_anggota->fetch_assoc()['total_anggota'];
+
 ?>
 
 <!DOCTYPE html>
@@ -54,17 +70,11 @@ $res = getDataBooksLim(6);
                 </div>
                 <div class="col-12 col-xl-4">
                   <div class="justify-content-end d-flex">
-                    <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                      <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <i class="mdi mdi-calendar"></i> Today (5 Nov 2024)
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                        <a class="dropdown-item" href="#">January - March</a>
-                        <a class="dropdown-item" href="#">March - June</a>
-                        <a class="dropdown-item" href="#">June - August</a>
-                        <a class="dropdown-item" href="#">August - November</a>
-                      </div>
+                    <div class="d-flex flex-md-grow-1 flex-xl-grow-0 align-items-center">
+                      <span class="h4 text-dark">
+                        <i class="mdi mdi-calendar"></i>
+                        Today (<?php echo date('j M Y'); ?>)
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -78,11 +88,9 @@ $res = getDataBooksLim(6);
                   <img src="../../assets/images/dashboard/people.svg" alt="people">
                   <div class="weather-info">
                     <div class="d-flex">
-                      <div>
-                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
-                      </div>
+
                       <div class="ml-2">
-                        <h4 class="location font-weight-normal">Medan</h4>
+                        <h4 class="location font-weight-normal">Binjai</h4>
                         <h6 class="font-weight-normal">Indonesia</h6>
                       </div>
                     </div>
@@ -93,48 +101,61 @@ $res = getDataBooksLim(6);
 
             <div class="col-md-6 grid-margin transparent">
               <div class="row">
+                <!-- Total Buku -->
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
-                    <div class="card-body">
-                      <p class="mb-4">Total Buku</p>
-                      <p class="fs-30 mb-2">4006</p>
-                      <p>10.00% (30 days)</p>
-                    </div>
+                    <a href="data_buku.php" class="text-white text-decoration-none">
+                      <div class="card-body">
+                        <p class="mb-4">Total Buku</p>
+                        <p class="fs-30 mb-2"><?= $total_buku ?></p>
+                        <p>Jumlah Koleksi Buku</p>
+                      </div>
+                    </a>
                   </div>
                 </div>
+                <!-- Total Peminjaman -->
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-dark-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Peminjaman Keseluruhan</p>
-                      <p class="fs-30 mb-2">61344</p>
-                      <p>22.00% (30 days)</p>
-                    </div>
+                    <a href="data_peminjaman.php" class="text-white text-decoration-none">
+                      <div class="card-body">
+                        <p class="mb-4">Laporan Peminjaman</p>
+                        <p class="fs-30 mb-2"><?= $total_peminjaman ?></p>
+                        <p>Peminjaman Bulan Ini</p>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="row">
+                <!-- Total Denda -->
                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                   <div class="card card-light-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Laporan Denda</p>
-                      <p class="fs-30 mb-2">34040</p>
-                      <p>2.00% (30 days)</p>
-                    </div>
+                    <a href="data_denda.php" class="text-white text-decoration-none">
+                      <div class="card-body">
+                        <p class="mb-4">Laporan Denda</p>
+                        <p class="fs-30 mb-2">Rp.<?= $total_denda ?: 0 ?></p>
+                        <p>Denda Bulan Ini</p>
+                      </div>
+                    </a>
                   </div>
                 </div>
+                <!-- Anggota Aktif -->
                 <div class="col-md-6 stretch-card transparent">
                   <div class="card card-light-danger">
-                    <div class="card-body">
-                      <p class="mb-4">Anggota Aktif</p>
-                      <p class="fs-30 mb-2">47033</p>
-                      <p>0.22% (30 days)</p>
-                    </div>
+                    <a href="data_siswa.php" class="text-white text-decoration-none">
+                      <div class="card-body">
+                        <p class="mb-4">Anggota Aktif</p>
+                        <p class="fs-30 mb-2"><?= $total_anggota ?></p>
+                        <p>Jumlah Anggota Aktif</p>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
-          
+
 
           <!-- katalog buku -->
           <div class="container">
@@ -201,27 +222,27 @@ $res = getDataBooksLim(6);
 
           ?>
 
-                                <section id="testimonials">
-                                <h4 class="sec-head">Kutipan Motivasi</h4>
-                                <div class="cust-quotes">
-                                <blockquote data-timeout="5000">
-                                    <p>Membaca adalah jendela dunia.</p>
-                                    <cite>Soetomo</cite>
-                                </blockquote>
-                                <blockquote data-timeout="5000">
-                                    <p>Buku adalah sumber pengetahuan yang tak ternilai.</p>
-                                    <cite>Abdurrahman Wahid</cite>
-                                </blockquote>
-                                <blockquote data-timeout="5000">
-                                    <p>Kunci kesuksesan adalah fokus pada tujuan, bukan hambatan.</p>
-                                    <cite>Albert Schweitzer</cite>
-                                </blockquote>
-                                <blockquote data-timeout="5000">
-                                    <p>Sebuah ruangan tanpa buku bagaikan tubuh tanpa jiwa.</p>
-                                    <cite>Marcus Tullius Cicero</cite>
-                                </blockquote>
-                                </div>
-                                </section>
+          <section id="testimonials">
+            <h4 class="sec-head">Kutipan Motivasi</h4>
+            <div class="cust-quotes">
+              <blockquote data-timeout="5000">
+                <p>Membaca adalah jendela dunia.</p>
+                <cite>Soetomo</cite>
+              </blockquote>
+              <blockquote data-timeout="5000">
+                <p>Buku adalah sumber pengetahuan yang tak ternilai.</p>
+                <cite>Abdurrahman Wahid</cite>
+              </blockquote>
+              <blockquote data-timeout="5000">
+                <p>Kunci kesuksesan adalah fokus pada tujuan, bukan hambatan.</p>
+                <cite>Albert Schweitzer</cite>
+              </blockquote>
+              <blockquote data-timeout="5000">
+                <p>Sebuah ruangan tanpa buku bagaikan tubuh tanpa jiwa.</p>
+                <cite>Marcus Tullius Cicero</cite>
+              </blockquote>
+            </div>
+          </section>
 
           <!-- include/footer.php -->
           <?php

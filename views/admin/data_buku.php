@@ -252,7 +252,9 @@ $genres = getDataGenre();
                                                 <td><?= $rev['judul'] ?></td>
                                                 <td><?= $rev['nama_user'] ?></td>
                                                 <td><?= $rev['rating'] ?></td>
-                                                <td><?= $rev['komentar'] ?></td>
+                                                <td>
+                                                <?php if($rev['komentar'] == NULL) { echo "-" ;} else { echo $rev['komentar'] ; } ?>
+                                                </td>
                                                 <td><?= $rev['waktu_ulasan'] ?></td>
 
                                             </tr>
