@@ -9,7 +9,7 @@ if (isset($_POST['btnEditGuru'])) {
     $id_user_penginput = $_SESSION['id_user'];
     $no_induk = $username;
 
-    $password = mysqli_fetch_assoc(query("SELECT password FROM users WHERE id_user = $id_user"));
+    $password = mysqli_fetch_assoc(query("SELECT password FROM users WHERE id_user = $id_user"))['password'];
 
     // Periksa apakah username sudah digunakan oleh user lain
     $res = query("SELECT username FROM users WHERE username='$username' AND id_user != $id_user");

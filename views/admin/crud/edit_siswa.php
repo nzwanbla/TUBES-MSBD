@@ -11,7 +11,7 @@ if (isset($_POST['btnEditSiswa'])) {
     $tahun_masuk = $_POST['tahun_masuk'];
     $no_induk = $username;
 
-    $password = mysqli_fetch_assoc(query("SELECT password FROM users WHERE id_user = $id_user"));
+    $password = mysqli_fetch_assoc(query("SELECT password FROM users WHERE id_user = $id_user"))['password'];
 
     // Periksa apakah username sudah digunakan oleh user lain
     $res = query("SELECT username FROM users WHERE username='$username' AND id_user != $id_user");
