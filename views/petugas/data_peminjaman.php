@@ -73,6 +73,7 @@ date_default_timezone_set('Asia/Jakarta');
 											<th>Id Eks Buku</th>
 											<th>Judul</th>
 											<th>Tgl Dipinjam</th>
+											<th>Jatuh Tempo</th>
 											<th>Tgl Kembali</th>
 											<th>Petugas</th>
 											<th>Aksi</th>
@@ -90,7 +91,14 @@ date_default_timezone_set('Asia/Jakarta');
 												<td><?= $data['id_eksemplar_buku'] ?></td>
 												<td><?= $data['judul_buku'] ?></td>
 												<td><?= date('d-m-Y', strtotime($data['waktu_peminjaman'])) ?></td>
-
+												<td>
+                                                    <?php
+                                                    // Hitung jatuh tempo
+                                                    $tanggal_peminjaman = strtotime($data['waktu_peminjaman']);
+                                                    $jatuh_tempo = $tanggal_peminjaman + ($data['perpanjangan'] ? (9 * 24 * 60 * 60) : (6 * 24 * 60 * 60));
+                                                    echo date('d-m-Y', $jatuh_tempo);
+                                                    ?>
+                                                </td>
 												<td><?php
 												if ($data['waktu_pengembalian'] == null) {
 													echo "-"; // Or a message like "Belum Kembali"

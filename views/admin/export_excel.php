@@ -9,12 +9,12 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 
 // 1. Query data dari database
-$res = query("SELECT * FROM view_denda_buku WHERE YEAR(waktu_peminjaman) = YEAR(current_date) 
-                AND MONTH(waktu_peminjaman) = MONTH(current_date)");    
+$res = query("SELECT * FROM view_denda_buku WHERE YEAR(waktu_pengembalian) = YEAR(current_date) 
+                AND MONTH(waktu_pengembalian) = MONTH(current_date)");    
 
 // 2. Definisikan data header untuk file Excel
 $data = [
-    ['No', 'Nama Peminjam', 'Kelas', 'Id Eks Buku', 'Judul', 'Waktu Peminjaman', 'Biaya Denda', 'Keterangan'],
+    ['No', 'Nama Peminjam', 'Kelas', 'Id Eks Buku', 'Judul', 'Waktu Denda', 'Biaya Denda', 'Keterangan'],
 ];
 
 // 3. Jika ada data, masukkan ke dalam array
@@ -27,7 +27,7 @@ if (!empty($res)) {
             $row['kelas'],
             $row['id_eksemplar_buku'],
             $row['judul_buku'],
-            $row['waktu_peminjaman'],
+            $row['waktu_pengembalian'],
             'Rp. ' . number_format($row['besaran_denda'], 0, ',', '.'),
             $row['keterangan']
         ];

@@ -53,7 +53,7 @@ date_default_timezone_set('Asia/Jakarta');
 								<div class="ml-auto">
 								<div>
                                     <a class="btn btn-primary" href="export_excel.php">
-                                        Cetak Laporan
+                                        Cetak Laporan Bulanan
 									</a>
                                 </div>
 								</div>

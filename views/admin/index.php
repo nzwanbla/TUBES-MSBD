@@ -16,7 +16,7 @@ $query_peminjaman = query("SELECT COUNT(*) AS total_peminjaman FROM peminjaman_b
 $total_peminjaman = $query_peminjaman->fetch_assoc()['total_peminjaman'];
 
 // 3. Total Denda
-$query_denda = query("SELECT SUM(besaran_denda) AS total_denda FROM view_denda_buku WHERE YEAR(waktu_peminjaman) = YEAR(current_date) AND MONTH(waktu_peminjaman) = MONTH(current_date)");
+$query_denda = query("SELECT SUM(besaran_denda) AS total_denda FROM view_denda_buku WHERE YEAR(waktu_pengembalian) = YEAR(current_date) AND MONTH(waktu_pengembalian) = MONTH(current_date)");
 $total_denda = $query_denda->fetch_assoc()['total_denda'] ?? 0;
 
 // 4. Anggota Aktif

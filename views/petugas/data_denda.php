@@ -51,6 +51,11 @@ date_default_timezone_set('Asia/Jakarta');
 								<h4 class="m-0 font-weight-bold text-primary">Laporan Denda Peminjaman</h4>
 								<!-- Tombol-tombol di sebelah kanan -->
 								<div class="ml-auto">
+								<div>
+                                    <a class="btn btn-primary" href="export_excel.php">
+                                        Cetak Laporan Bulanan
+									</a>
+                                </div>
 								</div>
 							</div>
 
