@@ -8035,7 +8035,7 @@ textarea.form-control-lg {
 
 /* rtl:end:remove */
 .text-primary {
-  color: rgba(223, 213, 200, 1) !important; /* 1 adalah opacity penuh */
+  color: rgba(65, 65, 121, 1)  !important; /* 1 adalah opacity penuh */
 }
 
 .text-secondary {
@@ -10877,7 +10877,7 @@ p {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #212529;
+  background-color: #899eed;
 }
 #mainNav .navbar-toggler {
   padding: 0.75rem;
@@ -10942,29 +10942,66 @@ p {
   }
 }
 header.masthead {
-  padding-top: 10.5rem;
+  height: 100vh; /* Mengatur tinggi header menjadi full screen */
+  padding-top: 0;
   padding-bottom: 6rem;
-  text-align: center;
-  color: #fff;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/library.jpg");
+  text-align: left; /* Mengubah posisi teks ke kiri */
+  color: #000;
+  background-image: url("../../assets/img/library-new4.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  display: flex; /* Mengatur layout dengan flexbox */
+  align-items: center;
 }
+
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
   line-height: 1.5rem;
-  margin-bottom: 25px;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 15px;
+  font-family: "Open Sans", "Noto Color Emoji";
+  margin-left: 2rem; /* Tambahkan margin kiri */
 }
+
 header.masthead .masthead-heading {
-  font-size: 3.25rem;
+  font-size: 3.00rem;
   font-weight: 700;
+  color: #47479c;
   line-height: 3.25rem;
   margin-bottom: 2rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Open Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-left: 2rem; /* Tambahkan margin kiri */
+}
+
+header.masthead .masthead-textheading {
+  margin-left: 2rem;
+  margin-bottom: 25px;
+  font-family: "Open Sans", "Noto Color Emoji";
+  font-size: 1.0rem;
+}
+
+header.masthead .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background-color: #849ff3;
+  border: none;
+  border-radius: 25px; /* Tambahkan lekukan pada tombol */
+  margin-left: 2rem; /* Tambahkan margin kiri untuk tombol */
+  transition: all 0.3s ease;
+  width: 300px; /* Tetapkan panjang tombol */
+  text-align: center; 
+}
+
+header.masthead .btn:hover {
+  background-color: #414179;
+  color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -10977,16 +11014,22 @@ header.masthead .masthead-heading {
     font-style: italic;
     line-height: 2.25rem;
     margin-bottom: 2rem;
+    margin-left: 2rem; /* Konsisten margin kiri di layar besar */
   }
   header.masthead .masthead-heading {
     font-size: 4.5rem;
     font-weight: 700;
     line-height: 4.5rem;
     margin-bottom: 4rem;
+    margin-left: 2rem; /* Konsisten margin kiri di layar besar */
+  }
+  header.masthead .btn {
+    margin-left: 2rem; /* Konsisten margin kiri untuk tombol */
   }
 }
+
 #books .books-item {
-  max-width: 26rem;
+  max-width: 20rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -11000,14 +11043,14 @@ header.masthead .masthead-heading {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(255, 200, 0, 0.9);
+  background: rgba(65, 65, 121, 0.6);
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity ease-in-out 0.25s;
 }
 #books .books-item .books-link .books-hover .books-hover-content {
-  font-size: 1.25rem;
+  font-size: 1.10rem;
   color: white;
 }
 #books .books-item .books-link:hover .books-hover {
@@ -11017,6 +11060,7 @@ header.masthead .masthead-heading {
   padding: 1.5rem;
   text-align: center;
   background-color: #fff;
+  height: 150px;
 }
 #books .books-item .books-caption .books-caption-heading {
   font-size: 1.5rem;

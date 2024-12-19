@@ -34,9 +34,10 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Selamat Datang di Perpustakaan</div>
-                <div class="masthead-heading text-uppercase">SMAN 2 Binjai</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="views/login.php">Luangkan Waktumu, Mari Baca Buku!</a>
+                <div class="masthead-heading text-uppercase">Perpustakaan</div>
+                <div class="masthead-subheading">SMAN 2 BINJAI</div>
+                <div class="masthead-textheading">Perpustakaan sekolah hadir untuk menginspirasi,<br> mendukung kreativitas, dan membantu kamu meraih cita-cita <br> melalui beragam koleksi yang tersedia.</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="views/login.php">Mulai Disini !</a>
             </div>
         </header>
         <!-- Services-->
