@@ -101,7 +101,7 @@ date_default_timezone_set('Asia/Jakarta');
                                                 </td>
                                                 <td>
                                                     <?php 
-                                                        if ($data['status'] == 'Diterima') {
+                                                        if ($data['status'] == 'Diterima' OR $data['perpanjangan'] == TRUE) {
                                                             echo "Diperpanjang";
                                                         } elseif ($data['status'] == null) {
                                                             echo "-";

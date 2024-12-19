@@ -3,6 +3,7 @@
 
 <?php
   $data = getDataUsers($_SESSION['username']);
+  date_default_timezone_set('Asia/Jakarta');
 ?>
 
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -14,7 +15,8 @@
           <span class="icon-menu"></span>
         </button>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
+
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="icon-bell mx-0"></i>
               <span class="count"></span>
@@ -61,7 +63,8 @@
                 </div>
               </a>
             </div>
-          </li>
+          </li> -->
+
           <li class="nav-item nav-profile">
             <a class="nav-link" href="#">
               <img src="<?=$data['foto_profil']?>" alt="profile"/>

@@ -100,7 +100,7 @@ function getDataBooks()
 
 function getDataBooksLim($limit)
 {
-    $query = "SELECT * FROM view_katalog_buku ORDER BY jumlah_pemberi_rating DESC LIMIT $limit";
+    $query = "SELECT * FROM view_katalog_buku WHERE jenis_buku = 'NON Paket Pelajaran' ORDER BY jumlah_pemberi_rating DESC LIMIT $limit";
 
     $data = query($query);
 
