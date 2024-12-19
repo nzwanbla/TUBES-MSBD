@@ -163,30 +163,30 @@ if (isset($_POST['uploadbtn'])) {
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title">Change Password</h3>
+                                    <h3 class="card-title">Perbarui Kata Sandi</h3>
                                     <form class="forms-sample" method="POST" action="">
                                         <div class="form-group">
-                                            <label for="current-password">Current Password</label>
+                                            <label for="current-password">Kata Sandi Saat Ini</label>
                                             <input type="password" class="form-control" id="current-password"
-                                                name="current_password" placeholder="Enter current password" required>
+                                                name="current_password" placeholder="Masukkan kata sandi saat ini" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="new-password">New Password</label>
+                                            <label for="new-password">Kata Sandi Baru</label>
                                             <input type="password" class="form-control" id="new-password"
-                                                name="new_password" placeholder="Enter new password" required>
+                                                name="new_password" placeholder="Masukkan kata sandi baru" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="confirm-password">Confirm New Password</label>
+                                            <label for="confirm-password">Konfirmasi Kata Sandi Baru</label>
                                             <input type="password" class="form-control" id="confirm-password"
-                                                name="confirm_password" placeholder="Confirm new password" required>
+                                                name="confirm_password" placeholder="Konfirmasi kata sandi baru" required>
                                         </div>
 
-                                        <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Save
-                                            Changes</button>
+                                        <button type="submit" name="uploadbtn" class="btn btn-primary mr-2">Simpan
+                                            Perubahan</button>
                                         <a href="index.php" class="btn btn-light"
-                                            onclick="return confirm('Apakah anda yakin ingin meninggalkan perubahan?')">Close</a>
+                                            onclick="return confirm('Apakah anda yakin ingin meninggalkan perubahan?')">Batal</a>
                                     </form>
                                 </div>
                             </div>

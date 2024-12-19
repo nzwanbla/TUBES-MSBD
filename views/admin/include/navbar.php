@@ -74,11 +74,11 @@
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="settingDropdown">
               <a class="dropdown-item" href="profile.php">
                 <i class="mdi mdi-account text-primary"></i>
-                Change Profile
+                Edit Profil
               </a>
               <a class="dropdown-item" href="change_password.php">
                 <i class="ti-settings text-primary"></i>
-                Change Password
+                Perbarui Kata Sandi
               </a>
               <a class="dropdown-item" href="../logout.php">
                 <i class="ti-power-off text-primary"></i>
