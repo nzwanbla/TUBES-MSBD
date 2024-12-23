@@ -82,5 +82,15 @@ Kelompok 9
 - Melihat riwayat review atau ulasan buku
 
 
+### Akun Web :
+-Admin 
+    -username = Admin123
+    -password = Admin123
+
+-Petugas
+    -username = 00001234
+    -password = 00001234
+
+
 
 
