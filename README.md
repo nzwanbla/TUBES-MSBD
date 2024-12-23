@@ -83,13 +83,13 @@ Kelompok 9
 
 
 ### Akun Web :
--Admin 
-    -username = Admin123
-    -password = Admin123
+- Admin
+    - Username = Admin123
+    - Password = Admin123
 
--Petugas
-    -username = 00001234
-    -password = 00001234
+- Petugas
+    - Username = 00001234
+    - Password = 00001234
 
 
 
